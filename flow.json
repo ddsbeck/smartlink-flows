@@ -1,6 +1,6 @@
 [
     {
-        "id": "7026a2ad6026c27c",
+        "id": "7fa1432f965e825a",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "6a99a32e1e068858",
+        "id": "32449cb8eaca4b94",
         "type": "inject",
-        "z": "7026a2ad6026c27c",
+        "z": "7fa1432f965e825a",
         "name": "",
         "props": [
             {
@@ -28,73 +28,10 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 120,
-        "wires": [
-            [
-                "2ae218ba760bde55"
-            ]
-        ]
-    },
-    {
-        "id": "2ae218ba760bde55",
-        "type": "debug",
-        "z": "7026a2ad6026c27c",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "d4d5b21adc94257e",
-        "type": "inject",
-        "z": "7026a2ad6026c27c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
+        "x": 520,
         "y": 320,
         "wires": [
-            [
-                "1c7eb75c5a8014b0"
-            ]
+            []
         ]
-    },
-    {
-        "id": "1c7eb75c5a8014b0",
-        "type": "debug",
-        "z": "7026a2ad6026c27c",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 320,
-        "wires": []
     }
 ]
