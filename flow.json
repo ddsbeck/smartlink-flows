@@ -33,5 +33,32 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "ccc1848bd96cfbe3",
+        "type": "inject",
+        "z": "56417edc9376cdc2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            []
+        ]
     }
 ]
