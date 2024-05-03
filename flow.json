@@ -1,1 +1,4647 @@
-[]
+[
+    {
+        "id": "4fa07a50531e9361",
+        "type": "tab",
+        "label": "Expression",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "flowCategory": {
+            "value": "",
+            "label": "---"
+        },
+        "dbPanelCode": ""
+    },
+    {
+        "id": "090410d2df2762da",
+        "type": "subflow",
+        "name": "Update External codes",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": []
+            }
+        ],
+        "out": [
+            {
+                "x": 160,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "090410d2df2762da",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#5A9ADA"
+    },
+    {
+        "id": "bb30c4525becc520",
+        "type": "group",
+        "z": "4fa07a50531e9361",
+        "name": "Create",
+        "style": {
+            "label": true,
+            "stroke": "#000000"
+        },
+        "nodes": [
+            "cb8c60c73df76905",
+            "c2a960fda52d64a4",
+            "2d484fcf851321a6",
+            "b90dd2409eb16f58",
+            "0b668bcfa09d02c2",
+            "92a6d052072b9251",
+            "eeb5cb7f71e6c061",
+            "4249e623dd2132e4",
+            "bb058faa6508c443",
+            "7b4780b44168c9a7",
+            "5db121de66a28428",
+            "2163340fb22426e3"
+        ],
+        "x": 614,
+        "y": 39,
+        "w": 1692,
+        "h": 362
+    },
+    {
+        "id": "caea6975e34b426b",
+        "type": "group",
+        "z": "4fa07a50531e9361",
+        "name": "Update",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "82cce46adf8af064",
+            "fa803d8083c32cf8",
+            "5d0784e5ed28c57f",
+            "00caee0d4cdf7748",
+            "01e9c6608681d313",
+            "6008bc89bc2f2d7f",
+            "16511ffbd6bd89a2",
+            "719a7f584256df8c",
+            "8027a531981fb02b",
+            "d195538d7d1a3ca9"
+        ],
+        "x": 614,
+        "y": 439,
+        "w": 1692,
+        "h": 242
+    },
+    {
+        "id": "609fdf68d8602640",
+        "type": "group",
+        "z": "4fa07a50531e9361",
+        "name": "Delete",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "38e2e68981b9540e",
+            "7c352a0e4772ac4a",
+            "39ef2e693d3dd483",
+            "09eb1d2ab62fc7ec",
+            "8d4053fe82525a60",
+            "60e342f95cb1ef7e",
+            "15d5258283486790",
+            "297b8f414832d02b",
+            "4079e5674c9097b4",
+            "9c18247a16a170c2",
+            "69b07ea4fcf1b914",
+            "a976f4aa4c3b67af",
+            "d933358b8c79ed18",
+            "5261096054e80eea"
+        ],
+        "x": 614,
+        "y": 719,
+        "w": 1692,
+        "h": 382
+    },
+    {
+        "id": "8b585e8652c70b8b",
+        "type": "spinal-consumer",
+        "z": "4fa07a50531e9361",
+        "name": "ExpressionRequest",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.expression.ExpressionRequest",
+        "groupid": "cmdk-smartlink-expression-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "11b6ebbdf7ab86ac"
+            ]
+        ]
+    },
+    {
+        "id": "11b6ebbdf7ab86ac",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload.value",
+        "action": "obj",
+        "pretty": false,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "1358390ee17179bd"
+            ]
+        ]
+    },
+    {
+        "id": "1358390ee17179bd",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "name": "event",
+        "property": "payload.value.communicationTopic.eventType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CREATE",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UPDATE",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DELETE",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "4249e623dd2132e4"
+            ],
+            [
+                "82cce46adf8af064"
+            ],
+            [
+                "38e2e68981b9540e"
+            ]
+        ]
+    },
+    {
+        "id": "cb8c60c73df76905",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"externalId\": msg.value.externalId\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 360,
+        "wires": [
+            [
+                "0b668bcfa09d02c2"
+            ]
+        ]
+    },
+    {
+        "id": "c2a960fda52d64a4",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "Creation expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2150,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2d484fcf851321a6",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "Create expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\n\nconst scriptInsertCustom = \n`INSERT INTO dic_expressao_custom( \n\t\tcd_expressao,\n\t\tds_expressao,\n\t\tds_idioma,\n        ds_locale,\n        ds_layer,\n        nr_sequencia,\n        ie_situacao,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tVALUES (\n     ${dataRecord.externalId},\n\t '${translation[indexCustom].expression}',\n\t '${translation[indexCustom].language}',\n     '${translation[indexCustom].locale}',\n     '${translation[indexCustom].layer}',\n     '${translation[indexCustom].customExpressionExternalId}',\n     'A',\n     '${translation[indexCustom].modifiedBy}',\n\t '${translation[indexCustom].createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = scriptInsertCustom;\nmsg.event = msg.event;\nmsg.value = msg.value\nmsg.translationLength   = translationLength;\nmsg.indexCustom         = indexCustom+1;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 80,
+        "wires": [
+            [
+                "2163340fb22426e3"
+            ]
+        ]
+    },
+    {
+        "id": "b90dd2409eb16f58",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1160,
+        "y": 220,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "cb8c60c73df76905"
+            ]
+        ]
+    },
+    {
+        "id": "0b668bcfa09d02c2",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1790,
+        "y": 360,
+        "wires": [
+            [
+                "c2a960fda52d64a4"
+            ]
+        ]
+    },
+    {
+        "id": "82cce46adf8af064",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expressao script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord = msg.payload.value.dataRecord;\nconst sqlUpdate = `UPDATE dic_expressao\nSET\n    DS_GLOSSARIO = '${dataRecord.glossary}',\n    NM_USUARIO = '${dataRecord.modifiedBy}',\n    DT_ATUALIZACAO =  sysdate\nWHERE CD_EXPRESSAO = ${dataRecord.externalId}`;\n\nmsg.topic = sqlUpdate;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 540,
+        "wires": [
+            [
+                "8027a531981fb02b"
+            ]
+        ]
+    },
+    {
+        "id": "fa803d8083c32cf8",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1660,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5d0784e5ed28c57f",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Response",
+        "func": "const response = {};\nconst dataRecordResult = \n {\n \"expressionExternalId\": msg.value.externalId,\n \"externalId\" : msg.value.externalId\n };\n \nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n response.success = `Rows affected ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 640,
+        "wires": [
+            [
+                "00caee0d4cdf7748"
+            ]
+        ]
+    },
+    {
+        "id": "00caee0d4cdf7748",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 1450,
+        "y": 640,
+        "wires": [
+            [
+                "fa803d8083c32cf8"
+            ]
+        ]
+    },
+    {
+        "id": "01e9c6608681d313",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1060,
+        "y": 540,
+        "wires": [
+            [
+                "6008bc89bc2f2d7f"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "6008bc89bc2f2d7f",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet index                   = msg.index == null ? 0 : msg.index;\n\nconst sqlUpdate = `UPDATE dic_expressao_custom\nSET\n\tcd_expressao\t= ${dataRecord.externalId},\n    ds_expressao\t= '${translation[index].expression}',\n\tds_idioma\t\t= '${translation[index].language}',\n    ds_locale \t\t=  '${translation[index].locale}',\n\tds_layer\t\t= '${translation[index].layer}',\n    nm_usuario \t\t= '${translation[index].modifiedBy}',\n    dt_atualizacao =  sysdate\nWHERE NR_SEQUENCIA = ${translation[index].customExpressionExternalId}`;\n\nmsg.topic               = sqlUpdate;\nmsg.event               = msg.event;\nmsg.value               = msg.value;\nmsg.translationLength   = translationLength;\nmsg.index               = index+1;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 480,
+        "wires": [
+            [
+                "d195538d7d1a3ca9"
+            ]
+        ]
+    },
+    {
+        "id": "7c352a0e4772ac4a",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"customExpressionsExternal\": msg.value.translation\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 1060,
+        "wires": [
+            [
+                "09eb1d2ab62fc7ec"
+            ]
+        ]
+    },
+    {
+        "id": "39ef2e693d3dd483",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2160,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "09eb1d2ab62fc7ec",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1950,
+        "y": 1000,
+        "wires": [
+            [
+                "39ef2e693d3dd483"
+            ]
+        ]
+    },
+    {
+        "id": "38e2e68981b9540e",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression custom Script",
+        "func": "let indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\nconst communicationTopic    = msg.event == null ? msg.payload.value.communicationTopic.eventType : msg.event;\nconst dataRecord            = msg.value == null ? msg.payload.value.dataRecord : msg.value;\nconst translation           = dataRecord.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\n\nconst scriptDelete = \n    `DELETE FROM dic_expressao_custom \n    WHERE nr_sequencia =\n     ${translation[indexCustom].customExpressionExternalId}`;\n\nmsg.topic = scriptDelete;\nmsg.event = communicationTopic;\nmsg.value = dataRecord;\nmsg.indexCustom = indexCustom+1;\nmsg.translationLength   = translationLength;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 760,
+        "wires": [
+            [
+                "69b07ea4fcf1b914"
+            ]
+        ]
+    },
+    {
+        "id": "16511ffbd6bd89a2",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "index",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "index",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 580,
+        "wires": [
+            [
+                "6008bc89bc2f2d7f"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "92a6d052072b9251",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "parameters": [],
+        "name": "Create expressao script",
+        "func": "const dataRecord            = msg.value;\nconst sqlInsert = `insert into dic_expressao( \n\t\tcd_expressao,\n\t\tds_glossario,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tvalues(\n     ${dataRecord.externalId},\n     '${dataRecord.glossary}',\n     '${dataRecord.modifiedBy}',\n\t '${dataRecord.createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = sqlInsert;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 340,
+        "wires": [
+            [
+                "5db121de66a28428"
+            ]
+        ]
+    },
+    {
+        "id": "eeb5cb7f71e6c061",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 180,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "cb8c60c73df76905"
+            ]
+        ]
+    },
+    {
+        "id": "719a7f584256df8c",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Status result custom",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1880,
+        "y": 480,
+        "wires": [
+            [
+                "16511ffbd6bd89a2"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "7f57124bb487d88f",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Fetch translations Script",
+        "func": "// Get query parameters\nconst page          \t= msg.payload.value.page || 1;\nconst pageSize      \t= msg.payload.value.limit || 50;\nconst orderDirection   \t= msg.payload.value.direction || 'ASC';\nconst language      \t= msg.payload.value.language;\nconst locale        \t= msg.payload.value.locale;\nconst layer         \t= msg.payload.value.layer;\nconst isLike        \t= msg.payload.value.isLike;\nconst id            \t= msg.payload.value.id;\nconst description   \t= msg.payload.value.description;\nconst entry             = msg.payload.value.entry;\n\n// Add AND clauses\nlet restriction = '';\nlet expression = '';\n\nif (language) {\n\trestriction += ` AND (DS_IDIOMA IS NULL OR DS_IDIOMA = '${language}') `;\n}\n\nif (locale) {\n\trestriction += ` AND (DS_LOCALE IS NULL OR DS_LOCALE = '${locale}') `;\n}\n\nif (id) {\n\trestriction += ` AND (CD_EXPRESSAO = '${id}') `;\n}\n\nif (description) {\n    expression = description;\n\tif (isLike == \"true\") {\n\t\trestriction += ` AND (UPPER(DS_EXPRESSAO) LIKE UPPER('%${expression}%'))`;\n\t} else {\n\t\trestriction += ` AND (UPPER(DS_EXPRESSAO) = UPPER('${expression}'))`;\n\t}\n}\n\n// Add ORDER BY clauses\nlet orderBy = ' ORDER BY ';\n\nif (entry) {\n    orderBy += `ORDER_PRIORITY, ${entry} ${orderDirection} `;\n}else{\n    orderBy += 'SIMILARITY desc, ORDER_PRIORITY ';\n}\n\nif (orderDirection) {\n\torderBy += ` , DS_EXPRESSAO ${orderDirection} `;\n}\n\n// Default SQL\nconst expressionSql = `\n    SELECT t.*, \n           count(t.nr_sequencia) OVER() AS total\n\tFROM (\n\t\tSELECT  1 ORDER_PRIORITY,\n\t\t        NR_SEQUENCIA,\n\t\t        CD_EXPRESSAO,\n\t\t        DS_EXPRESSAO,\n\t\t        DS_LOCALE,\n\t\t        DS_IDIOMA,\n\t\t        DS_LAYER,\n\t\t        'CUSTOM' ORIGIN,\n\t\t        IE_SITUACAO,\n\t\t\t\tDT_ATUALIZACAO,\n\t\t\t\tDT_ATUALIZACAO_NREC,\n\t\t\t\tNM_USUARIO,\n\t\t\t\tNM_USUARIO_NREC,\n\t\t\t\tROUND(UTL_MATCH.JARO_WINKLER(DS_EXPRESSAO, '${expression}') * 100, 6) SIMILARITY\n\t\tFROM dic_expressao_custom\n\t\tWHERE 1 = 1\n\t\t${restriction}\n\t\tUNION ALL\n\t\tSELECT  2 ORDER_PRIORITY,\n\t\t        NR_SEQUENCIA,\n\t\t        CD_EXPRESSAO,\n\t\t        DS_EXPRESSAO,\n\t\t        DS_LOCALE,\n\t\t        DS_IDIOMA,\n\t\t        'CORE' DS_LAYER,\n\t\t        'CORE' ORIGIN,\n\t\t\t\t'NA' IE_SITUACAO,\n\t\t\t\tDT_ATUALIZACAO,\n\t\t\t\tDT_ATUALIZACAO_NREC,\n\t\t\t\tNM_USUARIO,\n\t\t\t\tNM_USUARIO_NREC,\n\t\t\t\tROUND(UTL_MATCH.JARO_WINKLER(DS_EXPRESSAO, '${expression}') * 100, 6) SIMILARITY\n\t\tFROM   dic_expressao_idioma\n\t\tWHERE 1 = 1\n\t\t${restriction}\n\t) t ${orderBy}\n`;\n\n\nlet beginPage;\n\nif (page <= 1) {\n    beginPage = 1;\n} else {\n    beginPage = (parseInt(page) * parseInt(pageSize)) + 1;\n}\n\nconst endPage = parseInt(beginPage) + parseInt(pageSize);\nconst paging = `SELECT * FROM (\n    SELECT PAGING.*, ROWNUM PAGING_RN FROM (${expressionSql}) PAGING WHERE (ROWNUM < \n\t${endPage}\n))\nWHERE (PAGING_RN >= \n\t${beginPage}\n)`;\n\nmsg.topic = paging;\nmsg.event = 'SELECT';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1380,
+        "wires": [
+            [
+                "c629fb0e0f60033f",
+                "2caa0a633cca16a5"
+            ]
+        ]
+    },
+    {
+        "id": "f171ab808a4ecf88",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Response translations",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 1380,
+        "wires": [
+            [
+                "20a0e29270799675",
+                "9b5a153682932c18"
+            ]
+        ]
+    },
+    {
+        "id": "c629fb0e0f60033f",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Built SQL - Translations",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "dc1d754d7853b33e",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Incoming Payload - Translations",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "b2fb264d4bafdf20",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug SQL Result - Translations",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "3cf4239e2248e673",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Fetch expression  Script",
+        "func": "// Get query parameters\nconst expressionIds = msg.payload.value.expressionIds;\n\nconst sql = `\n  SELECT CD_EXPRESSAO,\n         DS_GLOSSARIO,\n         NM_USUARIO,\n         NM_USUARIO_NREC,\n         DT_ATUALIZACAO,\n         DT_ATUALIZACAO_NREC\n  FROM   DIC_EXPRESSAO\n  WHERE  CD_EXPRESSAO IN (${expressionIds})\n`;\n\nmsg.topic = sql;\nmsg.event = 'SELECT-EXPRESSION';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1620,
+        "wires": [
+            [
+                "ebd39dfccbffcd09",
+                "37bf9f6ece2d4bfe"
+            ]
+        ]
+    },
+    {
+        "id": "469eb33c787e0f99",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Response expression",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1620,
+        "wires": [
+            [
+                "b14298f6a7f46ba3",
+                "72fd3ef0590d1c49"
+            ]
+        ]
+    },
+    {
+        "id": "ebd39dfccbffcd09",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Built SQL - Expression",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "a744e1de15631e79",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Incoming Payload - Expression",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "b14298f6a7f46ba3",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug SQL Result - Expression",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "8d4053fe82525a60",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Contains expression language",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "4079e5674c9097b4"
+            ],
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
+    },
+    {
+        "id": "60e342f95cb1ef7e",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptDeleteExpression = \n    `DELETE FROM dic_expressao \n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptDeleteExpression;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 760,
+        "wires": [
+            [
+                "5261096054e80eea"
+            ]
+        ]
+    },
+    {
+        "id": "4249e623dd2132e4",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "parameters": [],
+        "name": "Count expression script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord            = msg.payload.value.dataRecord;\nconst scriptExpression = \n    `SELECT * FROM dic_expressao\n    WHERE cd_expressao =\n     ${dataRecord.externalId}`;\n\nmsg.topic = scriptExpression;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 80,
+        "wires": [
+            [
+                "7b4780b44168c9a7"
+            ]
+        ]
+    },
+    {
+        "id": "bb058faa6508c443",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Contains expression",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "92a6d052072b9251"
+            ]
+        ]
+    },
+    {
+        "id": "ee46be6a6fcf3b16",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Fetch expression  Script",
+        "func": "// Get query parameters\nconst expression = msg.payload.value.expression;\nconst minSimilarity = msg.payload.value.minSimilarity;\nconst expressionExternalId = msg.payload.value.expressionExternalId;\nconst locale = msg.payload.value.locale;\n\nlet restriction = '';\n\nif (expressionExternalId != 0) {\n\trestriction += ` and e.cd_expressao <> ${expressionExternalId} `;\n}\n\nlet parsedExpression = '';\n\nif (expression) {\n    parsedExpression = expression;\n}\n\nconst sql = `\n  SELECT * FROM ( (SELECT e.CD_EXPRESSAO customExpressionExternalId, i.DS_EXPRESSAO expression, i.ds_locale locale, i.ds_idioma language, '' layer,\n        e.DS_GLOSSARIO glossary,\n        ROUND(UTL_MATCH.JARO_WINKLER(i.DS_EXPRESSAO, '${parsedExpression}') * 100, 6) SIMILARITY\n        FROM DIC_EXPRESSAO e, DIC_EXPRESSAO_IDIOMA i\n        WHERE UTL_MATCH.JARO_WINKLER_SIMILARITY(i.DS_EXPRESSAO, '${parsedExpression}') >= ${minSimilarity}\n        and e.cd_expressao = i.cd_expressao\n        and i.ds_locale = '${locale}'\n        ${restriction}\n        )\n    UNION\n        (SELECT e.CD_EXPRESSAO customExpressionExternalId, c.DS_EXPRESSAO expression, c.ds_locale locale, c.ds_idioma language, c.ds_layer layer,\n        e.DS_GLOSSARIO glossary,\n        ROUND(UTL_MATCH.JARO_WINKLER(c.DS_EXPRESSAO, '${parsedExpression}') * 100, 6) SIMILARITY\n        FROM DIC_EXPRESSAO e, DIC_EXPRESSAO_CUSTOM c\n        WHERE UTL_MATCH.JARO_WINKLER_SIMILARITY(c.DS_EXPRESSAO, '${parsedExpression}') >= ${minSimilarity}\n        and e.cd_expressao = c.cd_expressao\n        and c.ds_locale = '${locale}'\n        ${restriction}\n        )\n        )\n        where ROWNUM <= 5 ORDER BY SIMILARITY DESC, expression`;\n\nmsg.topic = sql;\nmsg.event = 'SELECT-EXPRESSION-SIMILARITY';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1880,
+        "wires": [
+            [
+                "bbc899a455982c7f",
+                "f9350cdab93cf62e"
+            ]
+        ]
+    },
+    {
+        "id": "46379757cce915f1",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Incoming Payload - Similarity",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "bbc899a455982c7f",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Built SQL - Similarity",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "a300d9bd81192d94",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "parameters": [],
+        "name": "Response expression",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1880,
+        "wires": [
+            [
+                "ad34698a036ade19",
+                "3ff8cd0a4a9efdbb"
+            ]
+        ]
+    },
+    {
+        "id": "ad34698a036ade19",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug SQL Result - Similarity",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1790,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "15d5258283486790",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Loop delete records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 810,
+        "y": 1000,
+        "wires": [
+            [
+                "38e2e68981b9540e"
+            ],
+            [
+                "297b8f414832d02b"
+            ]
+        ]
+    },
+    {
+        "id": "297b8f414832d02b",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Count expression language script",
+        "func": "const dataRecord            = msg.value;\nconst scriptIdioma = \n    `SELECT * FROM dic_expressao_idioma\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptIdioma;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1000,
+        "wires": [
+            [
+                "a976f4aa4c3b67af"
+            ]
+        ]
+    },
+    {
+        "id": "9c18247a16a170c2",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Contains expression custom",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1610,
+        "y": 920,
+        "wires": [
+            [
+                "60e342f95cb1ef7e"
+            ],
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
+    },
+    {
+        "id": "4079e5674c9097b4",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Count expression custom Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptCustom = \n    `SELECT * FROM dic_expressao_custom\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptCustom;\nmsg.value = dataRecord;\nmsg.indexCustom = msg.indexCustom+1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 760,
+        "wires": [
+            [
+                "d933358b8c79ed18"
+            ]
+        ]
+    },
+    {
+        "id": "7b4780b44168c9a7",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "bb058faa6508c443"
+            ]
+        ]
+    },
+    {
+        "id": "5db121de66a28428",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "b90dd2409eb16f58"
+            ]
+        ]
+    },
+    {
+        "id": "2163340fb22426e3",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 1630,
+        "y": 80,
+        "wires": [
+            [
+                "eeb5cb7f71e6c061"
+            ]
+        ]
+    },
+    {
+        "id": "8027a531981fb02b",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "x": 910,
+        "y": 620,
+        "wires": [
+            [
+                "01e9c6608681d313"
+            ]
+        ]
+    },
+    {
+        "id": "d195538d7d1a3ca9",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "x": 1630,
+        "y": 480,
+        "wires": [
+            [
+                "719a7f584256df8c"
+            ]
+        ]
+    },
+    {
+        "id": "69b07ea4fcf1b914",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 830,
+        "y": 880,
+        "wires": [
+            [
+                "15d5258283486790"
+            ]
+        ]
+    },
+    {
+        "id": "a976f4aa4c3b67af",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1150,
+        "y": 920,
+        "wires": [
+            [
+                "8d4053fe82525a60"
+            ]
+        ]
+    },
+    {
+        "id": "d933358b8c79ed18",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1530,
+        "y": 840,
+        "wires": [
+            [
+                "9c18247a16a170c2"
+            ]
+        ]
+    },
+    {
+        "id": "5261096054e80eea",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1930,
+        "y": 840,
+        "wires": [
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
+    },
+    {
+        "id": "2caa0a633cca16a5",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "x": 1230,
+        "y": 1380,
+        "wires": [
+            [
+                "f171ab808a4ecf88",
+                "b2fb264d4bafdf20"
+            ]
+        ]
+    },
+    {
+        "id": "37bf9f6ece2d4bfe",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "x": 1210,
+        "y": 1620,
+        "wires": [
+            [
+                "469eb33c787e0f99"
+            ]
+        ]
+    },
+    {
+        "id": "f9350cdab93cf62e",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "x": 1230,
+        "y": 1880,
+        "wires": [
+            [
+                "a300d9bd81192d94"
+            ]
+        ]
+    },
+    {
+        "id": "90d97283c203ba88",
+        "type": "spinal-consumer",
+        "z": "4fa07a50531e9361",
+        "name": "Expression Similarity Request",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.expression.ExpressionSimilarityRequest",
+        "groupid": "cmdk-smartlink-expression-similarity-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 460,
+        "y": 1880,
+        "wires": [
+            [
+                "93fd2efa774b5622"
+            ]
+        ]
+    },
+    {
+        "id": "93fd2efa774b5622",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 1880,
+        "wires": [
+            [
+                "ee46be6a6fcf3b16",
+                "46379757cce915f1"
+            ]
+        ]
+    },
+    {
+        "id": "3ff8cd0a4a9efdbb",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1710,
+        "y": 1880,
+        "wires": [
+            [
+                "5a04e2467bbb1351"
+            ]
+        ]
+    },
+    {
+        "id": "5a04e2467bbb1351",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "name": "Expression Similarity Reply",
+        "topic": "spinal.cmdk.expression.ExpressionSimilarityReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1940,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "a5a09536b5a4051e",
+        "type": "spinal-consumer",
+        "z": "4fa07a50531e9361",
+        "name": "Expression Data Request",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.expression.ExpressionsQueryRequest",
+        "groupid": "cmdk-smartlink-expression-data-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 450,
+        "y": 1620,
+        "wires": [
+            [
+                "1c01a8c256b3e461"
+            ]
+        ]
+    },
+    {
+        "id": "1c01a8c256b3e461",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 1620,
+        "wires": [
+            [
+                "3cf4239e2248e673",
+                "a744e1de15631e79"
+            ]
+        ]
+    },
+    {
+        "id": "72fd3ef0590d1c49",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1690,
+        "y": 1620,
+        "wires": [
+            [
+                "dcf605f468357aba"
+            ]
+        ]
+    },
+    {
+        "id": "dcf605f468357aba",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "name": "Expression Data Reply",
+        "topic": "spinal.cmdk.expression.ExpressionsQueryReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1900,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "e1095c783177ddfe",
+        "type": "spinal-consumer",
+        "z": "4fa07a50531e9361",
+        "name": "Translations Data Request",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.expression.TranslationsQueryRequest",
+        "groupid": "cmdk-smartlink-expression-translations-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 450,
+        "y": 1380,
+        "wires": [
+            [
+                "8908e81a2bfa6342"
+            ]
+        ]
+    },
+    {
+        "id": "8908e81a2bfa6342",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 1380,
+        "wires": [
+            [
+                "7f57124bb487d88f",
+                "dc1d754d7853b33e"
+            ]
+        ]
+    },
+    {
+        "id": "20a0e29270799675",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1890,
+        "y": 1380,
+        "wires": [
+            [
+                "c7d557a43238f314"
+            ]
+        ]
+    },
+    {
+        "id": "c7d557a43238f314",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "name": "Translations Data Reply",
+        "topic": "spinal.cmdk.expression.TranslationsQueryReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2110,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "9b5a153682932c18",
+        "type": "debug",
+        "z": "4fa07a50531e9361",
+        "name": "Debug Response Translations",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2050,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "d20c0b6ec9c609e2",
+        "type": "tab",
+        "label": "Smartlink object interceptor",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "flowCategory": {
+            "value": "",
+            "label": "---"
+        },
+        "dbPanelCode": ""
+    },
+    {
+        "id": "85cb1473d7e88320",
+        "type": "tab",
+        "label": "PLSQL Data from Tasy",
+        "disabled": true,
+        "info": "",
+        "env": [],
+        "flowCategory": {
+            "value": "",
+            "label": "---"
+        },
+        "dbPanelCode": ""
+    },
+    {
+        "id": "578cc34d29442445",
+        "type": "group",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Add interceptor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "062403af5967b70b",
+            "a063a1838547d3c3",
+            "b696e9350d149ac8",
+            "3fa7b7785ccb12f4",
+            "9c9a8231c3535fe7",
+            "ab17209b359f35d8",
+            "a276a946d4912cbd",
+            "30f40c94f3457f08",
+            "61b2c9305d6e89c2",
+            "6e63c30479a0e8a4",
+            "c56f5812a3b247dc",
+            "0f9e3ede6de4234e",
+            "21386e31b1abf1f8",
+            "63a1f9141e61361e",
+            "7df6da1ac5aa089c",
+            "8a4ba1eb72367e7a",
+            "3f4ef8d9ee799f9a",
+            "dc8c31877f5a223a",
+            "e37bfd336096d016"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 2412,
+        "h": 302
+    },
+    {
+        "id": "16f2d4a09fb71579",
+        "type": "group",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Check if object exists",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e466e1210d434e72",
+            "8f879f3c8580557f",
+            "5aaa7ece43de5004",
+            "ab9caa4852846458",
+            "143dfd3618d6d2df",
+            "c58a466588d4cbad",
+            "7c40c8e42ed19d49",
+            "4e19d646e65adf4b",
+            "a26383d3b089371d",
+            "a22338ca71c91eca"
+        ],
+        "x": 54,
+        "y": 759,
+        "w": 1512,
+        "h": 162
+    },
+    {
+        "id": "fc5eccf8390b40ea",
+        "type": "group",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Remove interceptor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "341f8c09293907cd",
+            "96779e67e693f892",
+            "c10b9571e0350a0f",
+            "3c6d7679d1693a88",
+            "24dce36477114006",
+            "584f63dc704b67a6",
+            "79b7e0a57bef5c6e",
+            "77cec347ee21bcfe",
+            "cb6557063768ad8c",
+            "442d98ad180e23e0",
+            "5c0a4979425d3fd0",
+            "723a1a183c88a76d",
+            "226c79ecf0638692",
+            "7e19f93f3d6fe631",
+            "ad4429f82fe51126",
+            "e4d8419aa7f59522",
+            "f61d8096aee830ca"
+        ],
+        "x": 54,
+        "y": 419,
+        "w": 2312,
+        "h": 262
+    },
+    {
+        "id": "341f8c09293907cd",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "[CONDITIONAL] Is object intercepted ?",
+        "func": "const objectName = msg.payload.value.objectName;\n\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nconst requestValue = {\n    objectName,\n    username : msg.payload.value.username\n};\n\nmsg.topic = sql;\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\";\nmsg.req = msg.req;\nmsg.headers = msg.payload.headers;\nmsg.requestValue = requestValue;\nmsg.lastPayload = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 580,
+        "wires": [
+            [
+                "96779e67e693f892",
+                "c84330bd25d77805"
+            ]
+        ]
+    },
+    {
+        "id": "96779e67e693f892",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "c10b9571e0350a0f",
+                "a78eab28e04ed101"
+            ]
+        ]
+    },
+    {
+        "id": "c10b9571e0350a0f",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Response structure",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (Array.isArray(msg.payload.select) && msg.payload.select.length > 0) {\n    const resultSet = msg.payload.select[0].resultSet;\n    response.status = 'SUCCESS';\n    if (Array.isArray(resultSet) && resultSet.length > 0) {\n        const isIntercepted = resultSet[0].IE_INTERCEPTED;\n        response.isIntercepted = isIntercepted === 'Y';\n    } else {\n        response.isIntercepted = 'N';    \n    }\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    headers: msg.headers,\n    requestValue : msg.requestValue\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 580,
+        "wires": [
+            [
+                "24dce36477114006"
+            ]
+        ]
+    },
+    {
+        "id": "062403af5967b70b",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "[CONDITIONAL] Is object intercepted ?",
+        "func": "const objectName = msg.payload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.lastPayload = msg.payload\nmsg.headers = msg.payload.headers\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "a063a1838547d3c3"
+            ]
+        ]
+    },
+    {
+        "id": "a063a1838547d3c3",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "b696e9350d149ac8"
+            ]
+        ]
+    },
+    {
+        "id": "b696e9350d149ac8",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Response structure",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error && payload.error.length > 0 && payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = payload.error[0].message;\n} else if (payload.select && payload.select.length > 0 && payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    const hasValues = payload.select[0].resultSet.length > 0;\n    const values = payload.select[0].resultSet;\n    const isIntercepted = (hasValues && values[0].IE_INTERCEPTED) || 'N';\n    response.isIntercepted = isIntercepted === 'Y';\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    ...msg.lastPayload,\n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 300,
+        "wires": [
+            [
+                "9c9a8231c3535fe7"
+            ]
+        ]
+    },
+    {
+        "id": "e466e1210d434e72",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "parameters": [],
+        "name": "Object Exists Function",
+        "func": "const objectName = msg.payload.value.objectName;\n\nconst sql = `\n    select   * \n    from     all_objects \n    where    object_name = '${objectName}' \n`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-CHECK-OBJECT-EXISTS';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "5aaa7ece43de5004",
+                "143dfd3618d6d2df"
+            ]
+        ]
+    },
+    {
+        "id": "8f879f3c8580557f",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "parameters": [],
+        "name": "Object Exists Response",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 800,
+        "wires": [
+            [
+                "7c40c8e42ed19d49",
+                "a26383d3b089371d"
+            ]
+        ]
+    },
+    {
+        "id": "5aaa7ece43de5004",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "x": 810,
+        "y": 800,
+        "wires": [
+            [
+                "8f879f3c8580557f",
+                "ab9caa4852846458"
+            ]
+        ]
+    },
+    {
+        "id": "ab9caa4852846458",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "143dfd3618d6d2df",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "c58a466588d4cbad",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "Check Object Exists",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.ObjectExistsRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-object-exists-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "4e19d646e65adf4b"
+            ]
+        ]
+    },
+    {
+        "id": "7c40c8e42ed19d49",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "4e19d646e65adf4b",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 800,
+        "wires": [
+            [
+                "e466e1210d434e72"
+            ]
+        ]
+    },
+    {
+        "id": "a26383d3b089371d",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1270,
+        "y": 800,
+        "wires": [
+            [
+                "a22338ca71c91eca"
+            ]
+        ]
+    },
+    {
+        "id": "a22338ca71c91eca",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "topic": "spinal.cmdk.object.ObjectExistsReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1460,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3fa7b7785ccb12f4",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug payload",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9c9a8231c3535fe7",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Run function",
+        "func": "const nmObject = msg.payload.value.objectName;\nconst userName = msg.payload.value.username;\nconst isIntercepted = msg.payload.isIntercepted\nconst externalId = msg.payload.value.externalId\n\nif (!nmObject) {\n    msg.error = 'objectName is required.'\n    return msg;\n}\n\nif (!/^[a-zA-Z0-9_]+$/.test(nmObject)) {\n    msg.error = 'Invalid object name.'\n    return msg;\n}\n\nif (isIntercepted) {\n    msg.error = 'Object already have an interceptor'\n    return msg;\n}\n\nlet procedure = `call CMDK_INTERCEPTOR_PCK.ADD_INTERCEPTOR('${nmObject}', '${externalId}','${userName}')`\n\nmsg.topic = procedure;\nmsg.event = 'SQL-OBJECT-INTERCEPTOR-ADD';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "3fa7b7785ccb12f4",
+                "30f40c94f3457f08"
+            ]
+        ]
+    },
+    {
+        "id": "ab17209b359f35d8",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug SQL output",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a276a946d4912cbd",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Map Responses",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'Y'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to added the interceptor to the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 160,
+        "wires": [
+            [
+                "0f9e3ede6de4234e",
+                "dc8c31877f5a223a"
+            ]
+        ]
+    },
+    {
+        "id": "30f40c94f3457f08",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1190,
+        "y": 140,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ],
+            [
+                "61b2c9305d6e89c2"
+            ]
+        ]
+    },
+    {
+        "id": "61b2c9305d6e89c2",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "x": 1350,
+        "y": 220,
+        "wires": [
+            [
+                "ab17209b359f35d8",
+                "21386e31b1abf1f8"
+            ]
+        ]
+    },
+    {
+        "id": "6e63c30479a0e8a4",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Add Interceptor Consumer",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.interceptor.AddInterceptorRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-add-interceptor-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "c56f5812a3b247dc"
+            ]
+        ]
+    },
+    {
+        "id": "c56f5812a3b247dc",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "062403af5967b70b"
+            ]
+        ]
+    },
+    {
+        "id": "e37bfd336096d016",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Add Interceptor Reply Producer",
+        "topic": "spinal.cmdk.object.interceptor.AddInterceptorReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2310,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3c6d7679d1693a88",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Debug topic",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "24dce36477114006",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Build delete procedure call",
+        "func": "const isIntercepted = msg.payload.isIntercepted\nconst objectName = msg.requestValue.objectName;\nconst userName = msg.requestValue.username || '';\n\nif (!objectName || !/^[a-zA-Z0-9_]+$/.test(objectName)) {\n    msg.error = 'Invalid object name.';\n}\n\nif (!isIntercepted) {\n    msg.error = 'Object does not have an interceptor to remove it';\n    return msg;\n}\n\nconst sql = `CALL CMDK_INTERCEPTOR_PCK.remove_interceptor('${objectName}', '${userName}')`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-OBJECT-DELETION';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "3c6d7679d1693a88",
+                "77cec347ee21bcfe"
+            ]
+        ]
+    },
+    {
+        "id": "584f63dc704b67a6",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Map Responses",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'N'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to remove the interceptor from the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 460,
+        "wires": [
+            [
+                "226c79ecf0638692"
+            ]
+        ]
+    },
+    {
+        "id": "79b7e0a57bef5c6e",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 1290,
+        "y": 580,
+        "wires": [
+            [
+                "cb6557063768ad8c",
+                "7e19f93f3d6fe631"
+            ]
+        ]
+    },
+    {
+        "id": "77cec347ee21bcfe",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1050,
+        "y": 460,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ],
+            [
+                "79b7e0a57bef5c6e"
+            ]
+        ]
+    },
+    {
+        "id": "cb6557063768ad8c",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Debug SQL output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.data",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "442d98ad180e23e0",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Remove Interceptor Consumer",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-remove-interceptor-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "5c0a4979425d3fd0"
+            ]
+        ]
+    },
+    {
+        "id": "5c0a4979425d3fd0",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 460,
+        "wires": [
+            [
+                "341f8c09293907cd"
+            ]
+        ]
+    },
+    {
+        "id": "723a1a183c88a76d",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Remove Interceptor Reply Producer",
+        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2200,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0f9e3ede6de4234e",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2230,
+        "y": 120,
+        "wires": [
+            [
+                "e37bfd336096d016"
+            ]
+        ]
+    },
+    {
+        "id": "226c79ecf0638692",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1930,
+        "y": 460,
+        "wires": [
+            [
+                "723a1a183c88a76d"
+            ]
+        ]
+    },
+    {
+        "id": "c84330bd25d77805",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Debug payload",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a78eab28e04ed101",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Debug payload after SQL",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "21386e31b1abf1f8",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "[CONDITIONAL] Check again if was intercepted",
+        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.headers = msg.lastPayload.headers\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 180,
+        "wires": [
+            [
+                "63a1f9141e61361e"
+            ]
+        ]
+    },
+    {
+        "id": "63a1f9141e61361e",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "x": 1730,
+        "y": 260,
+        "wires": [
+            [
+                "7df6da1ac5aa089c",
+                "8a4ba1eb72367e7a"
+            ]
+        ]
+    },
+    {
+        "id": "7df6da1ac5aa089c",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.select[0].resultSet",
+                "vt": "msg"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1970,
+        "y": 260,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ],
+            [
+                "3f4ef8d9ee799f9a"
+            ]
+        ]
+    },
+    {
+        "id": "8a4ba1eb72367e7a",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug SQL output",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3f4ef8d9ee799f9a",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Create error Function",
+        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to added the interceptor to the object.'\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2180,
+        "y": 260,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ]
+        ]
+    },
+    {
+        "id": "dc8c31877f5a223a",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug Response 2",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2020,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7e19f93f3d6fe631",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "[CONDITIONAL] Check again if was intercepted",
+        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 640,
+        "wires": [
+            [
+                "ad4429f82fe51126"
+            ]
+        ]
+    },
+    {
+        "id": "ad4429f82fe51126",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 1710,
+        "y": 640,
+        "wires": [
+            [
+                "f61d8096aee830ca",
+                "cb6557063768ad8c"
+            ]
+        ]
+    },
+    {
+        "id": "e4d8419aa7f59522",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Create error Function",
+        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to remove the interceptor from the object.'\n\nmsg.payload = { \n    ...response\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 580,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ]
+        ]
+    },
+    {
+        "id": "f61d8096aee830ca",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.select[0].resultSet",
+                "vt": "msg"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1750,
+        "y": 580,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ],
+            [
+                "e4d8419aa7f59522"
+            ]
+        ]
+    },
+    {
+        "id": "90f27b4d1754e62e",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object List Function",
+        "func": "const page              = msg.payload.value.page || 1;\nconst pageSize          = msg.payload.value.limit || 2;\nconst orderDirection    = msg.payload.value.direction || 'ASC';\nconst entry             = msg.payload.value.entry;\nconst id                = msg.payload.value.id;\nconst description       = msg.payload.value.description;\nconst application       = msg.payload.value.application;\nconst objType           = msg.payload.value.objType;\nconst dsLayer           = msg.payload.value.layer\nconst intercepted       = msg.payload.value.intercepted\n\nlet restriction = '';\nlet objName = '';\nlet objTypeName = '';\nlet applicationType = '';\n\nlet beginPage = (parseInt(page) * parseInt(pageSize)) + parseInt(1) - parseInt(pageSize);\nconst endPage = parseInt(beginPage) + parseInt(pageSize);\n\nif (application) {\n    applicationType = application;\n    restriction += `AND (DS_APLICACAO in '${applicationType}')`\n}\n\n\nif (objType) {\n    objTypeName = objType.toUpperCase();\n    restriction += `AND (upper(OS.IE_TIPO_OBJETO) in ('${objTypeName}'))`;\n} else {\n    restriction += `AND (upper(OS.ie_tipo_objeto) in ('FUNCTION') OR upper(OS.ie_tipo_objeto) in ('TRIGGER') OR upper(OS.ie_tipo_objeto) in ('PROCEDURE'))`;\n}\n\nif (description) {\n    objName = description;\n    restriction += ` AND (UPPER(OS.NM_OBJETO) LIKE UPPER('%${objName}%'))`;\n}\n\nif (id) {\n    restriction += ` AND (OS.nr_sequencia = '${id}') `;\n}\n\nif (intercepted) {\n    if (intercepted === 'Y') {\n        restriction += ` AND (coi.IE_INTERCEPTED = 'Y') `;    \n    } else if (intercepted === 'N') {\n        restriction += ` AND (coi.IE_INTERCEPTED = 'N' or coi.IE_INTERCEPTED IS NULL) `\n    }\n    \n}\n\n// Add ORDER BY clauses\nlet orderBy = ' ORDER BY ';\n\nif (entry) {\n    orderBy += `SIMILARITY DESC, ORDER_PRIORITY, ${entry} ${orderDirection} `;\n}else{\n    orderBy += 'SIMILARITY DESC, IE_GERAR_SCRIPT DESC,NM_OBJETO ';\n}\n\nif (orderDirection) {\n    orderBy += ` , NM_OBJETO ${orderDirection} `;\n}\n\nif (dsLayer) {\n   restriction += ' AND OS.DS_LAYER = ' + dsLayer;\n}\n\n\nconst sql = `\nSELECT OS.NM_OBJETO,\n       OS.DS_APLICACAO,\n       UPPER(OS.IE_TIPO_OBJETO) IE_TIPO_OBJETO,\n       OS.NM_USUARIO,\n       OS.DT_ATUALIZACAO,\n       OS.IE_GERAR_SCRIPT,\n       OS.IE_BANCO,\n       OS.IE_MEMORIA,\n       OS.DT_CRIACAO,\n       OS.IE_SITUACAO,\n       OS.nr_sequencia,\n       NVL(OS.DS_LAYER, 'CORE') DS_LAYER, \n       COUNT(*) OVER () total,\n       NVL(coi.ie_intercepted, 'N') ie_intercepted,\n       utl_match.jaro_winkler_similarity(os.nm_objeto, '${objName}') SIMILARITY\nFROM OBJETO_SISTEMA OS\nLEFT JOIN CMDK_OBJECT_INTERCEPTOR COI ON COI.NM_OBJECT = OS.NM_OBJETO\nWHERE\n    ((IE_BANCO       = 'null' AND 'null' <> 'null')\n    OR ('null' = 'null' AND IE_BANCO is not null))\n    ${restriction}\n    ${orderBy}`;\n\n\nconst paging = `SELECT * FROM (\n    SELECT PAGING.*, ROWNUM PAGING_RN FROM (${sql}) PAGING WHERE (ROWNUM < \n    ${endPage}\n))\nWHERE (PAGING_RN >= ${beginPage})\n`;\n\nmsg.topic = paging;\nmsg.event = 'SQL-OBJECT-LIST';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "8c4bd85578178866",
+                "c64f67e2c3d3bbee"
+            ]
+        ]
+    },
+    {
+        "id": "0daed543bb8f653b",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object List Response",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 120,
+        "wires": [
+            [
+                "3b792f03d19401b1",
+                "85c4887e427e50bb"
+            ]
+        ]
+    },
+    {
+        "id": "8c4bd85578178866",
+        "type": "tasy data access",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "0daed543bb8f653b",
+                "3806d63590535372"
+            ]
+        ]
+    },
+    {
+        "id": "3806d63590535372",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c64f67e2c3d3bbee",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "545489686d72064d",
+        "type": "spinal-consumer",
+        "z": "85cb1473d7e88320",
+        "name": "Get Object List",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.ObjectRequest",
+        "groupid": "cmdk-smartlink-plsql-data-get-object-list-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "e0cb61ab12e46d9d"
+            ]
+        ]
+    },
+    {
+        "id": "c84201ea5cff764b",
+        "type": "spinal-producer",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "topic": "spinal.cmdk.object.reply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "srv-dck-kosmos.whebdc.com.br:9092"
+        },
+        "broker": "0",
+        "x": 1420,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3b792f03d19401b1",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e0cb61ab12e46d9d",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "90f27b4d1754e62e"
+            ]
+        ]
+    },
+    {
+        "id": "85c4887e427e50bb",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1230,
+        "y": 120,
+        "wires": [
+            [
+                "c84201ea5cff764b"
+            ]
+        ]
+    },
+    {
+        "id": "e7139429f0684264",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object Owner Function",
+        "func": "const objectName = msg.payload.value.objectName;\n\n/*\n\n    The NVL function below is used to find the most specific object owner.\n    If present, the owner 'APP_EXTENSION' should be used when querying \n    object data such as it's arguments.\n    \n    The owner retrieved from this flow is used when searching for the object's arguments.\n\n*/\nconst sql = `\n    select nvl(\n        (\n            select  max(owner)\n            from    all_objects\n            where   object_name = '${objectName}'\n            and     owner = 'APP_EXTENSION'\n            and     exists \n                (\n                    select  1\n                    from    all_arguments\n                    where   object_name = '${objectName}'\n                    and     owner = 'APP_EXTENSION'\n                )\n        ),\n        (\n            select  max(owner)\n            from    all_objects\n            where   object_name = '${objectName}'\n        )\n    ) obj_owner\n    from dual\n`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-GET-OBJECT-OWNER';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "e6412cdf22dc75de",
+                "b07555b685ac1f21"
+            ]
+        ]
+    },
+    {
+        "id": "a281d25e3687b2d1",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object Owner Response",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 320,
+        "wires": [
+            [
+                "86cfd157dac6875b",
+                "4b2ae7440b8fb113"
+            ]
+        ]
+    },
+    {
+        "id": "e6412cdf22dc75de",
+        "type": "tasy data access",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "x": 770,
+        "y": 320,
+        "wires": [
+            [
+                "a281d25e3687b2d1",
+                "19605cb7ac4832be"
+            ]
+        ]
+    },
+    {
+        "id": "19605cb7ac4832be",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b07555b685ac1f21",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c178b7b6ce267744",
+        "type": "spinal-consumer",
+        "z": "85cb1473d7e88320",
+        "name": "Get Object Owner",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.ObjectOwnerRequest",
+        "groupid": "cmdk-smartlink-plsql-data-get-object-owner-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "99f0af75c9bf24f1"
+            ]
+        ]
+    },
+    {
+        "id": "86cfd157dac6875b",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "99f0af75c9bf24f1",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "e7139429f0684264"
+            ]
+        ]
+    },
+    {
+        "id": "4b2ae7440b8fb113",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1230,
+        "y": 320,
+        "wires": [
+            [
+                "8384256738ea5d8b"
+            ]
+        ]
+    },
+    {
+        "id": "8384256738ea5d8b",
+        "type": "spinal-producer",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "topic": "spinal.cmdk.object.ObjectOwnerReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "Default broker",
+            "host": "kafka:29092"
+        },
+        "broker": "0",
+        "x": 1420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cf39a1c76a12f672",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object Arguments Function",
+        "func": "const objectName = msg.payload.value.objectName;\nconst objectOwner = msg.payload.value.objectOwner;\n\nconst sql = `\n    select   *\n    from     all_arguments\n    where    owner = '${objectOwner}'\n    and      argument_name is not null \n    and      object_id = (\n                        select  max(object_id)\n                        from    all_objects\n                        where   object_name = '${objectName}'\n                        and     owner = '${objectOwner}'\n                        )\n    order by sequence\n`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-GET-OBJECT-ARGUMENTS';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "d62e763c9f2ac7fc",
+                "b7a0d8770554dcd6"
+            ]
+        ]
+    },
+    {
+        "id": "ecd686918981f7fd",
+        "type": "function",
+        "z": "85cb1473d7e88320",
+        "parameters": [],
+        "name": "Object Arguments Response",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 520,
+        "wires": [
+            [
+                "740d3b7a910eaa2a",
+                "5393a5cfc0ccf197"
+            ]
+        ]
+    },
+    {
+        "id": "d62e763c9f2ac7fc",
+        "type": "tasy data access",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "x": 770,
+        "y": 520,
+        "wires": [
+            [
+                "ecd686918981f7fd",
+                "6c8b096831a73612"
+            ]
+        ]
+    },
+    {
+        "id": "6c8b096831a73612",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b7a0d8770554dcd6",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "1a97a70f19abd0d7",
+        "type": "spinal-consumer",
+        "z": "85cb1473d7e88320",
+        "name": "Get Object Arguments",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.ObjectArgumentsRequest",
+        "groupid": "cmdk-smartlink-plsql-data-get-object-arguments-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "110aaa8767be81ca"
+            ]
+        ]
+    },
+    {
+        "id": "740d3b7a910eaa2a",
+        "type": "debug",
+        "z": "85cb1473d7e88320",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "110aaa8767be81ca",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "cf39a1c76a12f672"
+            ]
+        ]
+    },
+    {
+        "id": "5393a5cfc0ccf197",
+        "type": "json",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1230,
+        "y": 520,
+        "wires": [
+            [
+                "daf6025ece398a72"
+            ]
+        ]
+    },
+    {
+        "id": "daf6025ece398a72",
+        "type": "spinal-producer",
+        "z": "85cb1473d7e88320",
+        "name": "",
+        "topic": "spinal.cmdk.object.ObjectArgumentsReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "Default broker",
+            "host": "kafka:29092"
+        },
+        "broker": "0",
+        "x": 1420,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "61c1f16c3d79c591",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "new": true
+    },
+    {
+        "id": "fb2b9168b2e0c31a",
+        "type": "inject",
+        "z": "61c1f16c3d79c591",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "fb081258dfd8fc95"
+            ]
+        ]
+    },
+    {
+        "id": "fb081258dfd8fc95",
+        "type": "sql builder",
+        "z": "61c1f16c3d79c591",
+        "parameters": [],
+        "name": "",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "template": "select * from APP_EXTENSION.PABC_ATEBOLE",
+        "output": "str",
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "e535dfd4655f01e5"
+            ]
+        ]
+    },
+    {
+        "id": "e535dfd4655f01e5",
+        "type": "tasy data access",
+        "z": "61c1f16c3d79c591",
+        "name": "",
+        "x": 670,
+        "y": 120,
+        "wires": [
+            [
+                "5a43a65092390aee"
+            ]
+        ]
+    },
+    {
+        "id": "5a43a65092390aee",
+        "type": "debug",
+        "z": "61c1f16c3d79c591",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d2857dbcaee540ee",
+        "type": "tab",
+        "label": "Expression",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "flowCategory": {
+            "value": "",
+            "label": "---"
+        },
+        "dbPanelCode": ""
+    },
+    {
+        "id": "bfa1ee6e119087a5",
+        "type": "group",
+        "z": "d2857dbcaee540ee",
+        "name": "Create",
+        "style": {
+            "label": true,
+            "stroke": "#000000"
+        },
+        "nodes": [
+            "791cd8a4f9a66312",
+            "5ce216b3afa03a4f",
+            "7459350325109ebb",
+            "883082cf22440f91",
+            "a45441f550037f56",
+            "f5962d92dc97f935",
+            "65115c8a181e2f67",
+            "fa4bb871b8edcdb5",
+            "75a5f3b2660fe873",
+            "37cf3817a1f79aa6",
+            "fc5227d25fab7ca8",
+            "1b2796a5b954f65f",
+            "08eb78fe89670411"
+        ],
+        "x": 614,
+        "y": 39,
+        "w": 1692,
+        "h": 362
+    },
+    {
+        "id": "7ba78bb56b841807",
+        "type": "group",
+        "z": "d2857dbcaee540ee",
+        "name": "Update",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0f212573cf8e2238",
+            "3d21e47f124a9201",
+            "17a22305df6f6b4a",
+            "0ab58a32f4ac2e76",
+            "0cef5a8d0bd2b5b2",
+            "4a7640a31af6b783",
+            "d07ef6c59f3424c6",
+            "4678f1a4ce27214b",
+            "adad19cd2783230b",
+            "92e241a58eeae73e"
+        ],
+        "x": 614,
+        "y": 439,
+        "w": 1692,
+        "h": 242
+    },
+    {
+        "id": "cab881827736f25d",
+        "type": "group",
+        "z": "d2857dbcaee540ee",
+        "name": "Delete",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2ef94b375da5bbb3",
+            "0eb4cd1cad247d53",
+            "09e1a19f6c8863c8",
+            "7d0cabd348d586f0",
+            "e635a029585cfeed",
+            "bd50de6f22b76b38",
+            "c39480306d57a1dd",
+            "9b848f29d46dd086",
+            "63756ec34be7fd4e",
+            "f547c2446c241bde",
+            "87f20c2fb0099ff3",
+            "3d477249485a21cb",
+            "735a7dc28a686046",
+            "db0535ac60757284"
+        ],
+        "x": 614,
+        "y": 719,
+        "w": 1692,
+        "h": 382
+    },
+    {
+        "id": "6c0edb7b6ad763ca",
+        "type": "spinal-consumer",
+        "z": "d2857dbcaee540ee",
+        "name": "ExpressionRequest",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.expression.ExpressionRequest",
+        "groupid": "",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "3d75515440c67b7c"
+            ]
+        ]
+    },
+    {
+        "id": "3d75515440c67b7c",
+        "type": "json",
+        "z": "d2857dbcaee540ee",
+        "name": "",
+        "property": "payload.value",
+        "action": "obj",
+        "pretty": false,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "22bf0d59a4afdc66"
+            ]
+        ]
+    },
+    {
+        "id": "22bf0d59a4afdc66",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "name": "event",
+        "property": "payload.value.communicationTopic.eventType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CREATE",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UPDATE",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DELETE",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "75a5f3b2660fe873"
+            ],
+            [
+                "0f212573cf8e2238"
+            ],
+            [
+                "2ef94b375da5bbb3"
+            ]
+        ]
+    },
+    {
+        "id": "791cd8a4f9a66312",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"externalId\": msg.value.externalId\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 360,
+        "wires": [
+            [
+                "a45441f550037f56"
+            ]
+        ]
+    },
+    {
+        "id": "5ce216b3afa03a4f",
+        "type": "spinal-producer",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "Creation expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2150,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7459350325109ebb",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "Create expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\n\nconst scriptInsertCustom = \n`INSERT INTO dic_expressao_custom( \n\t\tcd_expressao,\n\t\tds_expressao,\n\t\tds_idioma,\n        ds_locale,\n        ds_layer,\n        nr_sequencia,\n        ie_situacao,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tVALUES (\n     ${dataRecord.externalId},\n\t '${translation[indexCustom].expression}',\n\t '${translation[indexCustom].language}',\n     '${translation[indexCustom].locale}',\n     '${translation[indexCustom].layer}',\n     '${translation[indexCustom].customExpressionExternalId}',\n     'A',\n     '${translation[indexCustom].modifiedBy}',\n\t '${translation[indexCustom].createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = scriptInsertCustom;\nmsg.event = msg.event;\nmsg.value = msg.value\nmsg.translationLength   = translationLength;\nmsg.indexCustom         = indexCustom+1;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 80,
+        "wires": [
+            [
+                "08eb78fe89670411"
+            ]
+        ]
+    },
+    {
+        "id": "883082cf22440f91",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1160,
+        "y": 220,
+        "wires": [
+            [
+                "7459350325109ebb"
+            ],
+            [
+                "791cd8a4f9a66312"
+            ]
+        ]
+    },
+    {
+        "id": "a45441f550037f56",
+        "type": "json",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1790,
+        "y": 360,
+        "wires": [
+            [
+                "5ce216b3afa03a4f"
+            ]
+        ]
+    },
+    {
+        "id": "0f212573cf8e2238",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "Update expressao script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord = msg.payload.value.dataRecord;\nconst sqlUpdate = `UPDATE dic_expressao\nSET\n    DS_GLOSSARIO = '${dataRecord.glossary}',\n    NM_USUARIO = '${dataRecord.modifiedBy}',\n    DT_ATUALIZACAO =  sysdate\nWHERE CD_EXPRESSAO = ${dataRecord.externalId}`;\n\nmsg.topic = sqlUpdate;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 540,
+        "wires": [
+            [
+                "adad19cd2783230b"
+            ]
+        ]
+    },
+    {
+        "id": "3d21e47f124a9201",
+        "type": "spinal-producer",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "Update expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1660,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "17a22305df6f6b4a",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "Response",
+        "func": "const response = {};\nconst dataRecordResult = \n {\n \"expressionExternalId\": msg.value.externalId,\n \"externalId\" : msg.value.externalId\n };\n \nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n response.success = `Rows affected ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 640,
+        "wires": [
+            [
+                "0ab58a32f4ac2e76"
+            ]
+        ]
+    },
+    {
+        "id": "0ab58a32f4ac2e76",
+        "type": "json",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 1450,
+        "y": 640,
+        "wires": [
+            [
+                "3d21e47f124a9201"
+            ]
+        ]
+    },
+    {
+        "id": "0cef5a8d0bd2b5b2",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1060,
+        "y": 540,
+        "wires": [
+            [
+                "4a7640a31af6b783"
+            ],
+            [
+                "17a22305df6f6b4a"
+            ]
+        ]
+    },
+    {
+        "id": "4a7640a31af6b783",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "Update expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet index                   = msg.index == null ? 0 : msg.index;\n\nconst sqlUpdate = `UPDATE dic_expressao_custom\nSET\n\tcd_expressao\t= ${dataRecord.externalId},\n    ds_expressao\t= '${translation[index].expression}',\n\tds_idioma\t\t= '${translation[index].language}',\n    ds_locale \t\t=  '${translation[index].locale}',\n\tds_layer\t\t= '${translation[index].layer}',\n    nm_usuario \t\t= '${translation[index].modifiedBy}',\n    dt_atualizacao =  sysdate\nWHERE NR_SEQUENCIA = ${translation[index].customExpressionExternalId}`;\n\nmsg.topic               = sqlUpdate;\nmsg.event               = msg.event;\nmsg.value               = msg.value;\nmsg.translationLength   = translationLength;\nmsg.index               = index+1;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 480,
+        "wires": [
+            [
+                "92e241a58eeae73e"
+            ]
+        ]
+    },
+    {
+        "id": "0eb4cd1cad247d53",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"customExpressionsExternal\": msg.value.translation\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 1060,
+        "wires": [
+            [
+                "7d0cabd348d586f0"
+            ]
+        ]
+    },
+    {
+        "id": "09e1a19f6c8863c8",
+        "type": "spinal-producer",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "Delete expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2160,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "7d0cabd348d586f0",
+        "type": "json",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1950,
+        "y": 1000,
+        "wires": [
+            [
+                "09e1a19f6c8863c8"
+            ]
+        ]
+    },
+    {
+        "id": "2ef94b375da5bbb3",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "Delete expression custom Script",
+        "func": "let indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\nconst communicationTopic    = msg.event == null ? msg.payload.value.communicationTopic.eventType : msg.event;\nconst dataRecord            = msg.value == null ? msg.payload.value.dataRecord : msg.value;\nconst translation           = dataRecord.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\n\nconst scriptDelete = \n    `DELETE FROM dic_expressao_custom \n    WHERE nr_sequencia =\n     ${translation[indexCustom].customExpressionExternalId}`;\n\nmsg.topic = scriptDelete;\nmsg.event = communicationTopic;\nmsg.value = dataRecord;\nmsg.indexCustom = indexCustom+1;\nmsg.translationLength   = translationLength;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 760,
+        "wires": [
+            [
+                "87f20c2fb0099ff3"
+            ]
+        ]
+    },
+    {
+        "id": "d07ef6c59f3424c6",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "index",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "index",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 580,
+        "wires": [
+            [
+                "4a7640a31af6b783"
+            ],
+            [
+                "17a22305df6f6b4a"
+            ]
+        ]
+    },
+    {
+        "id": "f5962d92dc97f935",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "Create expressao script",
+        "func": "const dataRecord            = msg.value;\nconst sqlInsert = `insert into dic_expressao( \n\t\tcd_expressao,\n\t\tds_glossario,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tvalues(\n     ${dataRecord.externalId},\n     '${dataRecord.glossary}',\n     '${dataRecord.modifiedBy}',\n\t '${dataRecord.createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = sqlInsert;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 340,
+        "wires": [
+            [
+                "1b2796a5b954f65f"
+            ]
+        ]
+    },
+    {
+        "id": "65115c8a181e2f67",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 180,
+        "wires": [
+            [
+                "7459350325109ebb"
+            ],
+            [
+                "791cd8a4f9a66312"
+            ]
+        ]
+    },
+    {
+        "id": "4678f1a4ce27214b",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "switch - Status result custom",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1880,
+        "y": 480,
+        "wires": [
+            [
+                "d07ef6c59f3424c6"
+            ],
+            [
+                "17a22305df6f6b4a"
+            ]
+        ]
+    },
+    {
+        "id": "fa4bb871b8edcdb5",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "switch - Status result custom",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1900,
+        "y": 80,
+        "wires": [
+            [
+                "65115c8a181e2f67"
+            ],
+            [
+                "791cd8a4f9a66312"
+            ]
+        ]
+    },
+    {
+        "id": "59d5208423a1069d",
+        "type": "http in",
+        "z": "d2857dbcaee540ee",
+        "name": "Expression RESTful API",
+        "url": "/expression/language",
+        "method": "get",
+        "usetls": false,
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "10ccdbcc2850380b",
+                "3708493d60be7eda"
+            ]
+        ]
+    },
+    {
+        "id": "10ccdbcc2850380b",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Fetch expression  Script",
+        "func": "// Get query parameters\nconst page          \t= msg.payload.page || 1;\nconst pageSize      \t= msg.payload.limit || 50;\nconst orderDirection   \t= msg.payload.direction || 'ASC';\nconst language      \t= msg.payload.language;\nconst locale        \t= msg.payload.locale;\nconst layer         \t= msg.payload.layer;\nconst isLike        \t= msg.payload.isLike;\nconst id            \t= msg.payload.id;\nconst description   \t= msg.payload.description;\nconst entry             = msg.payload.entry;\n\n// Add AND clauses\nlet restriction = '';\nlet expression = '';\n\nif (language) {\n\trestriction += ` AND (DS_IDIOMA IS NULL OR DS_IDIOMA = '${language}') `;\n}\n\nif (locale) {\n\trestriction += ` AND (DS_LOCALE IS NULL OR DS_LOCALE = '${locale}') `;\n}\n\nif (id) {\n\trestriction += ` AND (CD_EXPRESSAO = '${id}') `;\n}\n\nif (description) {\n    expression = decodeURIComponent(description);\n\tif (isLike == \"true\") {\n\t\trestriction += ` AND (UPPER(DS_EXPRESSAO) LIKE UPPER('%${expression}%'))`;\n\t} else {\n\t\trestriction += ` AND (UPPER(DS_EXPRESSAO) = UPPER('${expression}'))`;\n\t}\n}\n\n// Add ORDER BY clauses\nlet orderBy = ' ORDER BY ';\n\nif (entry) {\n    orderBy += `ORDER_PRIORITY, ${entry} ${orderDirection} `;\n}else{\n    orderBy += 'SIMILARITY desc, ORDER_PRIORITY ';\n}\n\nif (orderDirection) {\n\torderBy += ` , DS_EXPRESSAO ${orderDirection} `;\n}\n\n// Default SQL\nconst expressionSql = `\n    SELECT t.*, \n           count(t.nr_sequencia) OVER() AS total\n\tFROM (\n\t\tSELECT  1 ORDER_PRIORITY,\n\t\t        NR_SEQUENCIA,\n\t\t        CD_EXPRESSAO,\n\t\t        DS_EXPRESSAO,\n\t\t        DS_LOCALE,\n\t\t        DS_IDIOMA,\n\t\t        DS_LAYER,\n\t\t        'CUSTOM' ORIGIN,\n\t\t        IE_SITUACAO,\n\t\t\t\tDT_ATUALIZACAO,\n\t\t\t\tDT_ATUALIZACAO_NREC,\n\t\t\t\tNM_USUARIO,\n\t\t\t\tNM_USUARIO_NREC,\n\t\t\t\tROUND(UTL_MATCH.JARO_WINKLER(DS_EXPRESSAO, '${expression}') * 100, 6) SIMILARITY\n\t\tFROM dic_expressao_custom\n\t\tWHERE 1 = 1\n\t\t${restriction}\n\t\tUNION ALL\n\t\tSELECT  2 ORDER_PRIORITY,\n\t\t        NR_SEQUENCIA,\n\t\t        CD_EXPRESSAO,\n\t\t        DS_EXPRESSAO,\n\t\t        DS_LOCALE,\n\t\t        DS_IDIOMA,\n\t\t        'CORE' DS_LAYER,\n\t\t        'CORE' ORIGIN,\n\t\t\t\t'N/A' IE_SITUACAO,\n\t\t\t\tDT_ATUALIZACAO,\n\t\t\t\tDT_ATUALIZACAO_NREC,\n\t\t\t\tNM_USUARIO,\n\t\t\t\tNM_USUARIO_NREC,\n\t\t\t\tROUND(UTL_MATCH.JARO_WINKLER(DS_EXPRESSAO, '${expression}') * 100, 6) SIMILARITY\n\t\tFROM   dic_expressao_idioma\n\t\tWHERE 1 = 1\n\t\t${restriction}\n\t) t ${orderBy}\n`;\n\n// Build paging\nlet beginPage = (parseInt(page) * parseInt(pageSize)) + parseInt(1);\nconst endPage = parseInt(beginPage) + parseInt(pageSize);\nconst paging = `SELECT * FROM (\n    SELECT PAGING.*, ROWNUM PAGING_RN FROM (${expressionSql}) PAGING WHERE (ROWNUM < \n\t${endPage}\n))\nWHERE (PAGING_RN >= \n\t${beginPage}\n)`;\n\nmsg.topic = paging;\nmsg.event = 'SELECT';\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1380,
+        "wires": [
+            [
+                "1ee01bb1a75b2ab6",
+                "20d8a3b38552b58a"
+            ]
+        ]
+    },
+    {
+        "id": "b28695c2171f92a5",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Response expression",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1380,
+        "wires": [
+            [
+                "d67bcacc9dceecd4",
+                "4ff0bbdd1de70619"
+            ]
+        ]
+    },
+    {
+        "id": "d67bcacc9dceecd4",
+        "type": "http response",
+        "z": "d2857dbcaee540ee",
+        "name": "HTTP Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1720,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "1ee01bb1a75b2ab6",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Built SQL",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "3708493d60be7eda",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Incoming Payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "4ff0bbdd1de70619",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug SQL Result",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "4967c927dca585b5",
+        "type": "http in",
+        "z": "d2857dbcaee540ee",
+        "name": "Expression Data RESTful API",
+        "url": "/expression/",
+        "method": "get",
+        "usetls": false,
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 660,
+        "y": 1620,
+        "wires": [
+            [
+                "5861fcd59cb99087",
+                "519261ca18d2d0c1"
+            ]
+        ]
+    },
+    {
+        "id": "5861fcd59cb99087",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Fetch expression  Script",
+        "func": "// Get query parameters\nconst expressionIds = msg.payload.expressionIds;\n\nconst sql = `\n  SELECT CD_EXPRESSAO,\n         DS_GLOSSARIO,\n         NM_USUARIO,\n         NM_USUARIO_NREC,\n         DT_ATUALIZACAO,\n         DT_ATUALIZACAO_NREC\n  FROM   DIC_EXPRESSAO\n  WHERE  CD_EXPRESSAO IN (${expressionIds})\n`;\n\nmsg.topic = sql;\nmsg.event = 'SELECT-EXPRESSION';\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1620,
+        "wires": [
+            [
+                "087f9fda3228eeea",
+                "28aeac47bbd28bb5"
+            ]
+        ]
+    },
+    {
+        "id": "deba522f4b8e1757",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Response expression",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1620,
+        "wires": [
+            [
+                "04d20959ad0e4d89",
+                "e2bb961da3b8ff34"
+            ]
+        ]
+    },
+    {
+        "id": "04d20959ad0e4d89",
+        "type": "http response",
+        "z": "d2857dbcaee540ee",
+        "name": "HTTP Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1720,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "087f9fda3228eeea",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Built SQL",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "519261ca18d2d0c1",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Incoming Payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "e2bb961da3b8ff34",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug SQL Result",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "e635a029585cfeed",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "switch - Contains expression language",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "63756ec34be7fd4e"
+            ],
+            [
+                "0eb4cd1cad247d53"
+            ]
+        ]
+    },
+    {
+        "id": "bd50de6f22b76b38",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "Delete expression Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptDeleteExpression = \n    `DELETE FROM dic_expressao \n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptDeleteExpression;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 760,
+        "wires": [
+            [
+                "db0535ac60757284"
+            ]
+        ]
+    },
+    {
+        "id": "75a5f3b2660fe873",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "Count expression script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord            = msg.payload.value.dataRecord;\nconst scriptExpression = \n    `SELECT * FROM dic_expressao\n    WHERE cd_expressao =\n     ${dataRecord.externalId}`;\n\nmsg.topic = scriptExpression;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 80,
+        "wires": [
+            [
+                "fc5227d25fab7ca8"
+            ]
+        ]
+    },
+    {
+        "id": "37cf3817a1f79aa6",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "switch - Contains expression",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "7459350325109ebb"
+            ],
+            [
+                "f5962d92dc97f935"
+            ]
+        ]
+    },
+    {
+        "id": "802ac43fd54c1294",
+        "type": "http in",
+        "z": "d2857dbcaee540ee",
+        "name": "Expression Similarity RESTful API",
+        "url": "/expression/languageSimilarity",
+        "method": "get",
+        "usetls": false,
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 640,
+        "y": 1880,
+        "wires": [
+            [
+                "aa331a94a66fefab",
+                "c874c630eb258f59"
+            ]
+        ]
+    },
+    {
+        "id": "aa331a94a66fefab",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Fetch expression  Script",
+        "func": "// Get query parameters\nconst expression = msg.payload.expression;\nconst minSimilarity = msg.payload.minSimilarity;\nconst expressionExternalId = msg.payload.expressionExternalId;\nconst locale = msg.payload.locale;\n\nlet restriction = '';\n\nif (expressionExternalId != 0) {\n\trestriction += ` and e.cd_expressao <> ${expressionExternalId} `;\n}\n\nlet parsedExpression = '';\n\nif (expression) {\n    parsedExpression = expression;\n}\n\nconst sql = `\n  SELECT * FROM ( (SELECT e.CD_EXPRESSAO customExpressionExternalId, i.DS_EXPRESSAO expression, i.ds_locale locale, i.ds_idioma language, '' layer,\n        e.DS_GLOSSARIO glossary,\n        ROUND(UTL_MATCH.JARO_WINKLER(i.DS_EXPRESSAO, '${parsedExpression}') * 100, 6) SIMILARITY\n        FROM DIC_EXPRESSAO e, DIC_EXPRESSAO_IDIOMA i\n        WHERE UTL_MATCH.JARO_WINKLER_SIMILARITY(i.DS_EXPRESSAO, '${parsedExpression}') >= ${minSimilarity}\n        and e.cd_expressao = i.cd_expressao\n        and i.ds_locale = '${locale}'\n        ${restriction}\n        )\n    UNION\n        (SELECT e.CD_EXPRESSAO customExpressionExternalId, c.DS_EXPRESSAO expression, c.ds_locale locale, c.ds_idioma language, c.ds_layer layer,\n        e.DS_GLOSSARIO glossary,\n        ROUND(UTL_MATCH.JARO_WINKLER(c.DS_EXPRESSAO, '${parsedExpression}') * 100, 6) SIMILARITY\n        FROM DIC_EXPRESSAO e, DIC_EXPRESSAO_CUSTOM c\n        WHERE UTL_MATCH.JARO_WINKLER_SIMILARITY(c.DS_EXPRESSAO, '${parsedExpression}') >= ${minSimilarity}\n        and e.cd_expressao = c.cd_expressao\n        and c.ds_locale = '${locale}'\n        ${restriction}\n        )\n        )\n        where ROWNUM <= 5 ORDER BY SIMILARITY DESC, expression`;\n\nmsg.topic = sql;\nmsg.event = 'SELECT-EXPRESSION-SIMILARITY';\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1880,
+        "wires": [
+            [
+                "19dc10591e83206e",
+                "8dbe2dc6e71067b8"
+            ]
+        ]
+    },
+    {
+        "id": "c874c630eb258f59",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Incoming Payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "19dc10591e83206e",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug Built SQL",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "ebf7c9b3950c7213",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "name": "Response expression",
+        "func": "const response = {};\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 1880,
+        "wires": [
+            [
+                "2e737e10f9653569",
+                "afd4dafb50cd46f3"
+            ]
+        ]
+    },
+    {
+        "id": "2e737e10f9653569",
+        "type": "http response",
+        "z": "d2857dbcaee540ee",
+        "name": "HTTP Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1720,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "afd4dafb50cd46f3",
+        "type": "debug",
+        "z": "d2857dbcaee540ee",
+        "name": "Debug SQL Result",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "c39480306d57a1dd",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "switch - Loop delete records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 810,
+        "y": 1000,
+        "wires": [
+            [
+                "2ef94b375da5bbb3"
+            ],
+            [
+                "9b848f29d46dd086"
+            ]
+        ]
+    },
+    {
+        "id": "9b848f29d46dd086",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "Count expression language script",
+        "func": "const dataRecord            = msg.value;\nconst scriptIdioma = \n    `SELECT * FROM dic_expressao_idioma\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptIdioma;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1000,
+        "wires": [
+            [
+                "3d477249485a21cb"
+            ]
+        ]
+    },
+    {
+        "id": "f547c2446c241bde",
+        "type": "switch",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "switch - Contains expression custom",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1610,
+        "y": 920,
+        "wires": [
+            [
+                "bd50de6f22b76b38"
+            ],
+            [
+                "0eb4cd1cad247d53"
+            ]
+        ]
+    },
+    {
+        "id": "63756ec34be7fd4e",
+        "type": "function",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "Count expression custom Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptCustom = \n    `SELECT * FROM dic_expressao_custom\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptCustom;\nmsg.value = dataRecord;\nmsg.indexCustom = msg.indexCustom+1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 760,
+        "wires": [
+            [
+                "735a7dc28a686046"
+            ]
+        ]
+    },
+    {
+        "id": "fc5227d25fab7ca8",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "",
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "37cf3817a1f79aa6"
+            ]
+        ]
+    },
+    {
+        "id": "1b2796a5b954f65f",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "",
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "883082cf22440f91"
+            ]
+        ]
+    },
+    {
+        "id": "08eb78fe89670411",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "bfa1ee6e119087a5",
+        "name": "",
+        "x": 1630,
+        "y": 80,
+        "wires": [
+            [
+                "fa4bb871b8edcdb5"
+            ]
+        ]
+    },
+    {
+        "id": "adad19cd2783230b",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "",
+        "x": 910,
+        "y": 620,
+        "wires": [
+            [
+                "0cef5a8d0bd2b5b2"
+            ]
+        ]
+    },
+    {
+        "id": "92e241a58eeae73e",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "7ba78bb56b841807",
+        "name": "",
+        "x": 1630,
+        "y": 480,
+        "wires": [
+            [
+                "4678f1a4ce27214b"
+            ]
+        ]
+    },
+    {
+        "id": "87f20c2fb0099ff3",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "",
+        "x": 830,
+        "y": 880,
+        "wires": [
+            [
+                "c39480306d57a1dd"
+            ]
+        ]
+    },
+    {
+        "id": "3d477249485a21cb",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "",
+        "x": 1150,
+        "y": 920,
+        "wires": [
+            [
+                "e635a029585cfeed"
+            ]
+        ]
+    },
+    {
+        "id": "735a7dc28a686046",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "",
+        "x": 1530,
+        "y": 840,
+        "wires": [
+            [
+                "f547c2446c241bde"
+            ]
+        ]
+    },
+    {
+        "id": "db0535ac60757284",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "g": "cab881827736f25d",
+        "name": "",
+        "x": 1930,
+        "y": 840,
+        "wires": [
+            [
+                "0eb4cd1cad247d53"
+            ]
+        ]
+    },
+    {
+        "id": "20d8a3b38552b58a",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "name": "",
+        "x": 1230,
+        "y": 1380,
+        "wires": [
+            [
+                "b28695c2171f92a5"
+            ]
+        ]
+    },
+    {
+        "id": "28aeac47bbd28bb5",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "name": "",
+        "x": 1210,
+        "y": 1620,
+        "wires": [
+            [
+                "deba522f4b8e1757"
+            ]
+        ]
+    },
+    {
+        "id": "8dbe2dc6e71067b8",
+        "type": "tasy data access",
+        "z": "d2857dbcaee540ee",
+        "name": "",
+        "x": 1230,
+        "y": 1880,
+        "wires": [
+            [
+                "ebf7c9b3950c7213"
+            ]
+        ]
+    }
+]
