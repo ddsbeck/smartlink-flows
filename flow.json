@@ -13,17 +13,12 @@
         "dbPanelCode": ""
     },
     {
-        "id": "d20c0b6ec9c609e2",
+        "id": "61c1f16c3d79c591",
         "type": "tab",
-        "label": "Smartlink object interceptor",
+        "label": "Flow 1",
         "disabled": false,
         "info": "",
-        "env": [],
-        "flowCategory": {
-            "value": "",
-            "label": "---"
-        },
-        "dbPanelCode": ""
+        "env": []
     },
     {
         "id": "85cb1473d7e88320",
@@ -39,12 +34,17 @@
         "dbPanelCode": ""
     },
     {
-        "id": "61c1f16c3d79c591",
+        "id": "d20c0b6ec9c609e2",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Smartlink object interceptor",
         "disabled": false,
         "info": "",
-        "env": []
+        "env": [],
+        "flowCategory": {
+            "value": "",
+            "label": "---"
+        },
+        "dbPanelCode": ""
     },
     {
         "id": "090410d2df2762da",
@@ -76,6 +76,60 @@
         "color": "#5A9ADA"
     },
     {
+        "id": "609fdf68d8602640",
+        "type": "group",
+        "z": "4fa07a50531e9361",
+        "name": "Delete",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "38e2e68981b9540e",
+            "7c352a0e4772ac4a",
+            "39ef2e693d3dd483",
+            "09eb1d2ab62fc7ec",
+            "8d4053fe82525a60",
+            "60e342f95cb1ef7e",
+            "15d5258283486790",
+            "297b8f414832d02b",
+            "4079e5674c9097b4",
+            "9c18247a16a170c2",
+            "69b07ea4fcf1b914",
+            "a976f4aa4c3b67af",
+            "d933358b8c79ed18",
+            "5261096054e80eea"
+        ],
+        "x": 614,
+        "y": 719,
+        "w": 1692,
+        "h": 382
+    },
+    {
+        "id": "caea6975e34b426b",
+        "type": "group",
+        "z": "4fa07a50531e9361",
+        "name": "Update",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "82cce46adf8af064",
+            "fa803d8083c32cf8",
+            "5d0784e5ed28c57f",
+            "00caee0d4cdf7748",
+            "01e9c6608681d313",
+            "6008bc89bc2f2d7f",
+            "16511ffbd6bd89a2",
+            "719a7f584256df8c",
+            "8027a531981fb02b",
+            "d195538d7d1a3ca9"
+        ],
+        "x": 614,
+        "y": 439,
+        "w": 1692,
+        "h": 242
+    },
+    {
         "id": "bb30c4525becc520",
         "type": "group",
         "z": "4fa07a50531e9361",
@@ -104,58 +158,57 @@
         "h": 362
     },
     {
-        "id": "caea6975e34b426b",
+        "id": "fc5eccf8390b40ea",
         "type": "group",
-        "z": "4fa07a50531e9361",
-        "name": "Update",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Remove interceptor",
         "style": {
             "label": true
         },
         "nodes": [
-            "82cce46adf8af064",
-            "fa803d8083c32cf8",
-            "5d0784e5ed28c57f",
-            "00caee0d4cdf7748",
-            "01e9c6608681d313",
-            "6008bc89bc2f2d7f",
-            "16511ffbd6bd89a2",
-            "719a7f584256df8c",
-            "8027a531981fb02b",
-            "d195538d7d1a3ca9"
+            "341f8c09293907cd",
+            "96779e67e693f892",
+            "c10b9571e0350a0f",
+            "3c6d7679d1693a88",
+            "24dce36477114006",
+            "584f63dc704b67a6",
+            "79b7e0a57bef5c6e",
+            "77cec347ee21bcfe",
+            "cb6557063768ad8c",
+            "442d98ad180e23e0",
+            "5c0a4979425d3fd0",
+            "723a1a183c88a76d",
+            "226c79ecf0638692",
+            "7e19f93f3d6fe631",
+            "ad4429f82fe51126",
+            "e4d8419aa7f59522",
+            "f61d8096aee830ca"
         ],
-        "x": 614,
-        "y": 439,
-        "w": 1692,
-        "h": 242
+        "x": 54,
+        "y": 419
     },
     {
-        "id": "609fdf68d8602640",
+        "id": "16f2d4a09fb71579",
         "type": "group",
-        "z": "4fa07a50531e9361",
-        "name": "Delete",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Check if object exists",
         "style": {
             "label": true
         },
         "nodes": [
-            "38e2e68981b9540e",
-            "7c352a0e4772ac4a",
-            "39ef2e693d3dd483",
-            "09eb1d2ab62fc7ec",
-            "8d4053fe82525a60",
-            "60e342f95cb1ef7e",
-            "15d5258283486790",
-            "297b8f414832d02b",
-            "4079e5674c9097b4",
-            "9c18247a16a170c2",
-            "69b07ea4fcf1b914",
-            "a976f4aa4c3b67af",
-            "d933358b8c79ed18",
-            "5261096054e80eea"
+            "e466e1210d434e72",
+            "8f879f3c8580557f",
+            "5aaa7ece43de5004",
+            "ab9caa4852846458",
+            "143dfd3618d6d2df",
+            "c58a466588d4cbad",
+            "7c40c8e42ed19d49",
+            "4e19d646e65adf4b",
+            "a26383d3b089371d",
+            "a22338ca71c91eca"
         ],
-        "x": 614,
-        "y": 719,
-        "w": 1692,
-        "h": 382
+        "x": 54,
+        "y": 759
     },
     {
         "id": "578cc34d29442445",
@@ -190,57 +243,774 @@
         "y": 59
     },
     {
-        "id": "16f2d4a09fb71579",
-        "type": "group",
-        "z": "d20c0b6ec9c609e2",
-        "name": "Check if object exists",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "e466e1210d434e72",
-            "8f879f3c8580557f",
-            "5aaa7ece43de5004",
-            "ab9caa4852846458",
-            "143dfd3618d6d2df",
-            "c58a466588d4cbad",
-            "7c40c8e42ed19d49",
-            "4e19d646e65adf4b",
-            "a26383d3b089371d",
-            "a22338ca71c91eca"
-        ],
-        "x": 54,
-        "y": 759
+        "id": "5261096054e80eea",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1930,
+        "y": 840,
+        "wires": [
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
     },
     {
-        "id": "fc5eccf8390b40ea",
-        "type": "group",
-        "z": "d20c0b6ec9c609e2",
-        "name": "Remove interceptor",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "341f8c09293907cd",
-            "96779e67e693f892",
-            "c10b9571e0350a0f",
-            "3c6d7679d1693a88",
-            "24dce36477114006",
-            "584f63dc704b67a6",
-            "79b7e0a57bef5c6e",
-            "77cec347ee21bcfe",
-            "cb6557063768ad8c",
-            "442d98ad180e23e0",
-            "5c0a4979425d3fd0",
-            "723a1a183c88a76d",
-            "226c79ecf0638692",
-            "7e19f93f3d6fe631",
-            "ad4429f82fe51126",
-            "e4d8419aa7f59522",
-            "f61d8096aee830ca"
+        "id": "d933358b8c79ed18",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1530,
+        "y": 840,
+        "wires": [
+            [
+                "9c18247a16a170c2"
+            ]
+        ]
+    },
+    {
+        "id": "a976f4aa4c3b67af",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 1150,
+        "y": 920,
+        "wires": [
+            [
+                "8d4053fe82525a60"
+            ]
+        ]
+    },
+    {
+        "id": "69b07ea4fcf1b914",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "x": 830,
+        "y": 880,
+        "wires": [
+            [
+                "15d5258283486790"
+            ]
+        ]
+    },
+    {
+        "id": "d195538d7d1a3ca9",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "x": 1630,
+        "y": 480,
+        "wires": [
+            [
+                "719a7f584256df8c"
+            ]
+        ]
+    },
+    {
+        "id": "8027a531981fb02b",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "x": 910,
+        "y": 620,
+        "wires": [
+            [
+                "01e9c6608681d313"
+            ]
+        ]
+    },
+    {
+        "id": "2163340fb22426e3",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 1630,
+        "y": 80,
+        "wires": [
+            [
+                "eeb5cb7f71e6c061"
+            ]
+        ]
+    },
+    {
+        "id": "5db121de66a28428",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "b90dd2409eb16f58"
+            ]
+        ]
+    },
+    {
+        "id": "7b4780b44168c9a7",
+        "type": "tasy data access",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "bb058faa6508c443"
+            ]
+        ]
+    },
+    {
+        "id": "4079e5674c9097b4",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Count expression custom Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptCustom = \n    `SELECT * FROM dic_expressao_custom\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptCustom;\nmsg.value = dataRecord;\nmsg.indexCustom = msg.indexCustom+1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 760,
+        "wires": [
+            [
+                "d933358b8c79ed18"
+            ]
+        ]
+    },
+    {
+        "id": "9c18247a16a170c2",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Contains expression custom",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
         ],
-        "x": 54,
-        "y": 419
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1610,
+        "y": 920,
+        "wires": [
+            [
+                "60e342f95cb1ef7e"
+            ],
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
+    },
+    {
+        "id": "297b8f414832d02b",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Count expression language script",
+        "func": "const dataRecord            = msg.value;\nconst scriptIdioma = \n    `SELECT * FROM dic_expressao_idioma\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptIdioma;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1000,
+        "wires": [
+            [
+                "a976f4aa4c3b67af"
+            ]
+        ]
+    },
+    {
+        "id": "15d5258283486790",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Loop delete records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 810,
+        "y": 1000,
+        "wires": [
+            [
+                "38e2e68981b9540e"
+            ],
+            [
+                "297b8f414832d02b"
+            ]
+        ]
+    },
+    {
+        "id": "bb058faa6508c443",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Contains expression",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "92a6d052072b9251"
+            ]
+        ]
+    },
+    {
+        "id": "4249e623dd2132e4",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "parameters": [],
+        "name": "Count expression script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord            = msg.payload.value.dataRecord;\nconst scriptExpression = \n    `SELECT * FROM dic_expressao\n    WHERE cd_expressao =\n     ${dataRecord.externalId}`;\n\nmsg.topic = scriptExpression;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 80,
+        "wires": [
+            [
+                "7b4780b44168c9a7"
+            ]
+        ]
+    },
+    {
+        "id": "60e342f95cb1ef7e",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression Script",
+        "func": "const dataRecord            = msg.value;\nconst scriptDeleteExpression = \n    `DELETE FROM dic_expressao \n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptDeleteExpression;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 760,
+        "wires": [
+            [
+                "5261096054e80eea"
+            ]
+        ]
+    },
+    {
+        "id": "8d4053fe82525a60",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "switch - Contains expression language",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "4079e5674c9097b4"
+            ],
+            [
+                "7c352a0e4772ac4a"
+            ]
+        ]
+    },
+    {
+        "id": "719a7f584256df8c",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Status result custom",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1880,
+        "y": 480,
+        "wires": [
+            [
+                "16511ffbd6bd89a2"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "eeb5cb7f71e6c061",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "indexCustom",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "indexCustom",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 180,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "cb8c60c73df76905"
+            ]
+        ]
+    },
+    {
+        "id": "92a6d052072b9251",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "parameters": [],
+        "name": "Create expressao script",
+        "func": "const dataRecord            = msg.value;\nconst sqlInsert = `insert into dic_expressao( \n\t\tcd_expressao,\n\t\tds_glossario,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tvalues(\n     ${dataRecord.externalId},\n     '${dataRecord.glossary}',\n     '${dataRecord.modifiedBy}',\n\t '${dataRecord.createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = sqlInsert;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 340,
+        "wires": [
+            [
+                "5db121de66a28428"
+            ]
+        ]
+    },
+    {
+        "id": "16511ffbd6bd89a2",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Loop records custom ",
+        "property": "translationLength",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "index",
+                "vt": "msg"
+            },
+            {
+                "t": "eq",
+                "v": "index",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2160,
+        "y": 580,
+        "wires": [
+            [
+                "6008bc89bc2f2d7f"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "38e2e68981b9540e",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression custom Script",
+        "func": "let indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\nconst communicationTopic    = msg.event == null ? msg.payload.value.communicationTopic.eventType : msg.event;\nconst dataRecord            = msg.value == null ? msg.payload.value.dataRecord : msg.value;\nconst translation           = dataRecord.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\n\nconst scriptDelete = \n    `DELETE FROM dic_expressao_custom \n    WHERE nr_sequencia =\n     ${translation[indexCustom].customExpressionExternalId}`;\n\nmsg.topic = scriptDelete;\nmsg.event = communicationTopic;\nmsg.value = dataRecord;\nmsg.indexCustom = indexCustom+1;\nmsg.translationLength   = translationLength;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 760,
+        "wires": [
+            [
+                "69b07ea4fcf1b914"
+            ]
+        ]
+    },
+    {
+        "id": "09eb1d2ab62fc7ec",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1950,
+        "y": 1000,
+        "wires": [
+            [
+                "39ef2e693d3dd483"
+            ]
+        ]
+    },
+    {
+        "id": "39ef2e693d3dd483",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "Delete expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2160,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "7c352a0e4772ac4a",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "609fdf68d8602640",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"customExpressionsExternal\": msg.value.translation\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 1060,
+        "wires": [
+            [
+                "09eb1d2ab62fc7ec"
+            ]
+        ]
+    },
+    {
+        "id": "6008bc89bc2f2d7f",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet index                   = msg.index == null ? 0 : msg.index;\n\nconst sqlUpdate = `UPDATE dic_expressao_custom\nSET\n\tcd_expressao\t= ${dataRecord.externalId},\n    ds_expressao\t= '${translation[index].expression}',\n\tds_idioma\t\t= '${translation[index].language}',\n    ds_locale \t\t=  '${translation[index].locale}',\n\tds_layer\t\t= '${translation[index].layer}',\n    nm_usuario \t\t= '${translation[index].modifiedBy}',\n    dt_atualizacao =  sysdate\nWHERE NR_SEQUENCIA = ${translation[index].customExpressionExternalId}`;\n\nmsg.topic               = sqlUpdate;\nmsg.event               = msg.event;\nmsg.value               = msg.value;\nmsg.translationLength   = translationLength;\nmsg.index               = index+1;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 480,
+        "wires": [
+            [
+                "d195538d7d1a3ca9"
+            ]
+        ]
+    },
+    {
+        "id": "01e9c6608681d313",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1060,
+        "y": 540,
+        "wires": [
+            [
+                "6008bc89bc2f2d7f"
+            ],
+            [
+                "5d0784e5ed28c57f"
+            ]
+        ]
+    },
+    {
+        "id": "00caee0d4cdf7748",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 1450,
+        "y": 640,
+        "wires": [
+            [
+                "fa803d8083c32cf8"
+            ]
+        ]
+    },
+    {
+        "id": "5d0784e5ed28c57f",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Response",
+        "func": "const response = {};\nconst dataRecordResult = \n {\n \"expressionExternalId\": msg.value.externalId,\n \"externalId\" : msg.value.externalId\n };\n \nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n response.success = `Rows affected ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 640,
+        "wires": [
+            [
+                "00caee0d4cdf7748"
+            ]
+        ]
+    },
+    {
+        "id": "fa803d8083c32cf8",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1660,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "82cce46adf8af064",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "caea6975e34b426b",
+        "name": "Update expressao script",
+        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord = msg.payload.value.dataRecord;\nconst sqlUpdate = `UPDATE dic_expressao\nSET\n    DS_GLOSSARIO = '${dataRecord.glossary}',\n    NM_USUARIO = '${dataRecord.modifiedBy}',\n    DT_ATUALIZACAO =  sysdate\nWHERE CD_EXPRESSAO = ${dataRecord.externalId}`;\n\nmsg.topic = sqlUpdate;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 540,
+        "wires": [
+            [
+                "8027a531981fb02b"
+            ]
+        ]
+    },
+    {
+        "id": "0b668bcfa09d02c2",
+        "type": "json",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1790,
+        "y": 360,
+        "wires": [
+            [
+                "c2a960fda52d64a4"
+            ]
+        ]
+    },
+    {
+        "id": "b90dd2409eb16f58",
+        "type": "switch",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "switch - Status result",
+        "property": "statusResult",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1160,
+        "y": 220,
+        "wires": [
+            [
+                "2d484fcf851321a6"
+            ],
+            [
+                "cb8c60c73df76905"
+            ]
+        ]
+    },
+    {
+        "id": "2d484fcf851321a6",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "Create expression custom script",
+        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\n\nconst scriptInsertCustom = \n`INSERT INTO dic_expressao_custom( \n\t\tcd_expressao,\n\t\tds_expressao,\n\t\tds_idioma,\n        ds_locale,\n        ds_layer,\n        nr_sequencia,\n        ie_situacao,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tVALUES (\n     ${dataRecord.externalId},\n\t '${translation[indexCustom].expression}',\n\t '${translation[indexCustom].language}',\n     '${translation[indexCustom].locale}',\n     '${translation[indexCustom].layer}',\n     '${translation[indexCustom].customExpressionExternalId}',\n     'A',\n     '${translation[indexCustom].modifiedBy}',\n\t '${translation[indexCustom].createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = scriptInsertCustom;\nmsg.event = msg.event;\nmsg.value = msg.value\nmsg.translationLength   = translationLength;\nmsg.indexCustom         = indexCustom+1;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 80,
+        "wires": [
+            [
+                "2163340fb22426e3"
+            ]
+        ]
+    },
+    {
+        "id": "c2a960fda52d64a4",
+        "type": "spinal-producer",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "Creation expression response",
+        "topic": "spinal.cmdk.expression.ExpressionResponse",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": "",
+        "transactiontimeout": "",
+        "metadatamaxage": "",
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2150,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cb8c60c73df76905",
+        "type": "function",
+        "z": "4fa07a50531e9361",
+        "g": "bb30c4525becc520",
+        "name": "ResponseExpression",
+        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"externalId\": msg.value.externalId\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 360,
+        "wires": [
+            [
+                "0b668bcfa09d02c2"
+            ]
+        ]
     },
     {
         "id": "8b585e8652c70b8b",
@@ -318,445 +1088,6 @@
             ],
             [
                 "38e2e68981b9540e"
-            ]
-        ]
-    },
-    {
-        "id": "cb8c60c73df76905",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "ResponseExpression",
-        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"externalId\": msg.value.externalId\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1520,
-        "y": 360,
-        "wires": [
-            [
-                "0b668bcfa09d02c2"
-            ]
-        ]
-    },
-    {
-        "id": "c2a960fda52d64a4",
-        "type": "spinal-producer",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "Creation expression response",
-        "topic": "spinal.cmdk.expression.ExpressionResponse",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": "",
-        "transactiontimeout": "",
-        "metadatamaxage": "",
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 2150,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "2d484fcf851321a6",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "Create expression custom script",
-        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\n\nconst scriptInsertCustom = \n`INSERT INTO dic_expressao_custom( \n\t\tcd_expressao,\n\t\tds_expressao,\n\t\tds_idioma,\n        ds_locale,\n        ds_layer,\n        nr_sequencia,\n        ie_situacao,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tVALUES (\n     ${dataRecord.externalId},\n\t '${translation[indexCustom].expression}',\n\t '${translation[indexCustom].language}',\n     '${translation[indexCustom].locale}',\n     '${translation[indexCustom].layer}',\n     '${translation[indexCustom].customExpressionExternalId}',\n     'A',\n     '${translation[indexCustom].modifiedBy}',\n\t '${translation[indexCustom].createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = scriptInsertCustom;\nmsg.event = msg.event;\nmsg.value = msg.value\nmsg.translationLength   = translationLength;\nmsg.indexCustom         = indexCustom+1;\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1370,
-        "y": 80,
-        "wires": [
-            [
-                "2163340fb22426e3"
-            ]
-        ]
-    },
-    {
-        "id": "b90dd2409eb16f58",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "switch - Status result",
-        "property": "statusResult",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1160,
-        "y": 220,
-        "wires": [
-            [
-                "2d484fcf851321a6"
-            ],
-            [
-                "cb8c60c73df76905"
-            ]
-        ]
-    },
-    {
-        "id": "0b668bcfa09d02c2",
-        "type": "json",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": true,
-        "x": 1790,
-        "y": 360,
-        "wires": [
-            [
-                "c2a960fda52d64a4"
-            ]
-        ]
-    },
-    {
-        "id": "82cce46adf8af064",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "Update expressao script",
-        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord = msg.payload.value.dataRecord;\nconst sqlUpdate = `UPDATE dic_expressao\nSET\n    DS_GLOSSARIO = '${dataRecord.glossary}',\n    NM_USUARIO = '${dataRecord.modifiedBy}',\n    DT_ATUALIZACAO =  sysdate\nWHERE CD_EXPRESSAO = ${dataRecord.externalId}`;\n\nmsg.topic = sqlUpdate;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 540,
-        "wires": [
-            [
-                "8027a531981fb02b"
-            ]
-        ]
-    },
-    {
-        "id": "fa803d8083c32cf8",
-        "type": "spinal-producer",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "Update expression response",
-        "topic": "spinal.cmdk.expression.ExpressionResponse",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": "",
-        "transactiontimeout": "",
-        "metadatamaxage": "",
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 1660,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "5d0784e5ed28c57f",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "Response",
-        "func": "const response = {};\nconst dataRecordResult = \n {\n \"expressionExternalId\": msg.value.externalId,\n \"externalId\" : msg.value.externalId\n };\n \nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n response.success = `Rows affected ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1280,
-        "y": 640,
-        "wires": [
-            [
-                "00caee0d4cdf7748"
-            ]
-        ]
-    },
-    {
-        "id": "00caee0d4cdf7748",
-        "type": "json",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 1450,
-        "y": 640,
-        "wires": [
-            [
-                "fa803d8083c32cf8"
-            ]
-        ]
-    },
-    {
-        "id": "01e9c6608681d313",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "switch - Status result",
-        "property": "statusResult",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 1060,
-        "y": 540,
-        "wires": [
-            [
-                "6008bc89bc2f2d7f"
-            ],
-            [
-                "5d0784e5ed28c57f"
-            ]
-        ]
-    },
-    {
-        "id": "6008bc89bc2f2d7f",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "Update expression custom script",
-        "func": "const dataRecord            = msg.value;\nconst translation           = msg.value.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\nlet index                   = msg.index == null ? 0 : msg.index;\n\nconst sqlUpdate = `UPDATE dic_expressao_custom\nSET\n\tcd_expressao\t= ${dataRecord.externalId},\n    ds_expressao\t= '${translation[index].expression}',\n\tds_idioma\t\t= '${translation[index].language}',\n    ds_locale \t\t=  '${translation[index].locale}',\n\tds_layer\t\t= '${translation[index].layer}',\n    nm_usuario \t\t= '${translation[index].modifiedBy}',\n    dt_atualizacao =  sysdate\nWHERE NR_SEQUENCIA = ${translation[index].customExpressionExternalId}`;\n\nmsg.topic               = sqlUpdate;\nmsg.event               = msg.event;\nmsg.value               = msg.value;\nmsg.translationLength   = translationLength;\nmsg.index               = index+1;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1370,
-        "y": 480,
-        "wires": [
-            [
-                "d195538d7d1a3ca9"
-            ]
-        ]
-    },
-    {
-        "id": "7c352a0e4772ac4a",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "ResponseExpression",
-        "func": "const response = {};\nconst dataRecordResult = \n    {\n        \"customExpressionsExternal\": msg.value.translation\n    };\n\nresponse.eventType          = msg.event;\nresponse.dataRecordResult   = dataRecordResult;\n\nif(msg.error){\n    response.status = 'ERROR';\n    response.error = msg.error.message;\n}else{\n    response.status = 'SUCCESS';\n    response.success = `Rows affected  ${msg.payload.rowsAffected}`;\n}\nmsg.payload = response;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1660,
-        "y": 1060,
-        "wires": [
-            [
-                "09eb1d2ab62fc7ec"
-            ]
-        ]
-    },
-    {
-        "id": "39ef2e693d3dd483",
-        "type": "spinal-producer",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "Delete expression response",
-        "topic": "spinal.cmdk.expression.ExpressionResponse",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": "",
-        "transactiontimeout": "",
-        "metadatamaxage": "",
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 2160,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "09eb1d2ab62fc7ec",
-        "type": "json",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": true,
-        "x": 1950,
-        "y": 1000,
-        "wires": [
-            [
-                "39ef2e693d3dd483"
-            ]
-        ]
-    },
-    {
-        "id": "38e2e68981b9540e",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "Delete expression custom Script",
-        "func": "let indexCustom             = msg.indexCustom == null ? 0 : msg.indexCustom;\nconst communicationTopic    = msg.event == null ? msg.payload.value.communicationTopic.eventType : msg.event;\nconst dataRecord            = msg.value == null ? msg.payload.value.dataRecord : msg.value;\nconst translation           = dataRecord.translation;\nconst translationLength     = msg.translationLength == null ? translation.length : msg.translationLength;\n\nconst scriptDelete = \n    `DELETE FROM dic_expressao_custom \n    WHERE nr_sequencia =\n     ${translation[indexCustom].customExpressionExternalId}`;\n\nmsg.topic = scriptDelete;\nmsg.event = communicationTopic;\nmsg.value = dataRecord;\nmsg.indexCustom = indexCustom+1;\nmsg.translationLength   = translationLength;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 760,
-        "wires": [
-            [
-                "69b07ea4fcf1b914"
-            ]
-        ]
-    },
-    {
-        "id": "16511ffbd6bd89a2",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "switch - Loop records custom ",
-        "property": "translationLength",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "index",
-                "vt": "msg"
-            },
-            {
-                "t": "eq",
-                "v": "index",
-                "vt": "msg"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 2160,
-        "y": 580,
-        "wires": [
-            [
-                "6008bc89bc2f2d7f"
-            ],
-            [
-                "5d0784e5ed28c57f"
-            ]
-        ]
-    },
-    {
-        "id": "92a6d052072b9251",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "parameters": [],
-        "name": "Create expressao script",
-        "func": "const dataRecord            = msg.value;\nconst sqlInsert = `insert into dic_expressao( \n\t\tcd_expressao,\n\t\tds_glossario,\n\t\tnm_usuario,\t\t\t\t\n\t\tnm_usuario_nrec,\n\t\tdt_atualizacao,\n\t\tdt_atualizacao_nrec)\n\t\tvalues(\n     ${dataRecord.externalId},\n     '${dataRecord.glossary}',\n     '${dataRecord.modifiedBy}',\n\t '${dataRecord.createdBy}',\n     sysdate,\n\t sysdate)`;\n\nmsg.topic = sqlInsert;\nmsg.value = dataRecord;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 790,
-        "y": 340,
-        "wires": [
-            [
-                "5db121de66a28428"
-            ]
-        ]
-    },
-    {
-        "id": "eeb5cb7f71e6c061",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "switch - Loop records custom ",
-        "property": "translationLength",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "indexCustom",
-                "vt": "msg"
-            },
-            {
-                "t": "eq",
-                "v": "indexCustom",
-                "vt": "msg"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 2160,
-        "y": 180,
-        "wires": [
-            [
-                "2d484fcf851321a6"
-            ],
-            [
-                "cb8c60c73df76905"
-            ]
-        ]
-    },
-    {
-        "id": "719a7f584256df8c",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "switch - Status result custom",
-        "property": "statusResult",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1880,
-        "y": 480,
-        "wires": [
-            [
-                "16511ffbd6bd89a2"
-            ],
-            [
-                "5d0784e5ed28c57f"
             ]
         ]
     },
@@ -947,107 +1278,6 @@
         "wires": []
     },
     {
-        "id": "8d4053fe82525a60",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "switch - Contains expression language",
-        "property": "payload.select[0].resultSet",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "empty"
-            },
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1170,
-        "y": 840,
-        "wires": [
-            [
-                "4079e5674c9097b4"
-            ],
-            [
-                "7c352a0e4772ac4a"
-            ]
-        ]
-    },
-    {
-        "id": "60e342f95cb1ef7e",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "Delete expression Script",
-        "func": "const dataRecord            = msg.value;\nconst scriptDeleteExpression = \n    `DELETE FROM dic_expressao \n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptDeleteExpression;\nmsg.value = dataRecord;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1790,
-        "y": 760,
-        "wires": [
-            [
-                "5261096054e80eea"
-            ]
-        ]
-    },
-    {
-        "id": "4249e623dd2132e4",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "parameters": [],
-        "name": "Count expression script",
-        "func": "const communicationTopic    = msg.payload.value.communicationTopic;\nconst dataRecord            = msg.payload.value.dataRecord;\nconst scriptExpression = \n    `SELECT * FROM dic_expressao\n    WHERE cd_expressao =\n     ${dataRecord.externalId}`;\n\nmsg.topic = scriptExpression;\nmsg.event = communicationTopic.eventType;\nmsg.value = dataRecord;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 80,
-        "wires": [
-            [
-                "7b4780b44168c9a7"
-            ]
-        ]
-    },
-    {
-        "id": "bb058faa6508c443",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "switch - Contains expression",
-        "property": "payload.select[0].resultSet",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            },
-            {
-                "t": "empty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 800,
-        "y": 240,
-        "wires": [
-            [
-                "2d484fcf851321a6"
-            ],
-            [
-                "92a6d052072b9251"
-            ]
-        ]
-    },
-    {
         "id": "ee46be6a6fcf3b16",
         "type": "function",
         "z": "4fa07a50531e9361",
@@ -1139,236 +1369,6 @@
         "x": 1790,
         "y": 1980,
         "wires": []
-    },
-    {
-        "id": "15d5258283486790",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "switch - Loop delete records custom ",
-        "property": "translationLength",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "indexCustom",
-                "vt": "msg"
-            },
-            {
-                "t": "eq",
-                "v": "indexCustom",
-                "vt": "msg"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 810,
-        "y": 1000,
-        "wires": [
-            [
-                "38e2e68981b9540e"
-            ],
-            [
-                "297b8f414832d02b"
-            ]
-        ]
-    },
-    {
-        "id": "297b8f414832d02b",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "Count expression language script",
-        "func": "const dataRecord            = msg.value;\nconst scriptIdioma = \n    `SELECT * FROM dic_expressao_idioma\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptIdioma;\nmsg.value = dataRecord;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1180,
-        "y": 1000,
-        "wires": [
-            [
-                "a976f4aa4c3b67af"
-            ]
-        ]
-    },
-    {
-        "id": "9c18247a16a170c2",
-        "type": "switch",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "switch - Contains expression custom",
-        "property": "payload.select[0].resultSet",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "empty"
-            },
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1610,
-        "y": 920,
-        "wires": [
-            [
-                "60e342f95cb1ef7e"
-            ],
-            [
-                "7c352a0e4772ac4a"
-            ]
-        ]
-    },
-    {
-        "id": "4079e5674c9097b4",
-        "type": "function",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "Count expression custom Script",
-        "func": "const dataRecord            = msg.value;\nconst scriptCustom = \n    `SELECT * FROM dic_expressao_custom\n    WHERE cd_expressao =\n     ${dataRecord.expressionExternalId}`;\n\nmsg.topic = scriptCustom;\nmsg.value = dataRecord;\nmsg.indexCustom = msg.indexCustom+1;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1410,
-        "y": 760,
-        "wires": [
-            [
-                "d933358b8c79ed18"
-            ]
-        ]
-    },
-    {
-        "id": "7b4780b44168c9a7",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "",
-        "x": 770,
-        "y": 160,
-        "wires": [
-            [
-                "bb058faa6508c443"
-            ]
-        ]
-    },
-    {
-        "id": "5db121de66a28428",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "",
-        "x": 1030,
-        "y": 340,
-        "wires": [
-            [
-                "b90dd2409eb16f58"
-            ]
-        ]
-    },
-    {
-        "id": "2163340fb22426e3",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "bb30c4525becc520",
-        "name": "",
-        "x": 1630,
-        "y": 80,
-        "wires": [
-            [
-                "eeb5cb7f71e6c061"
-            ]
-        ]
-    },
-    {
-        "id": "8027a531981fb02b",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "",
-        "x": 910,
-        "y": 620,
-        "wires": [
-            [
-                "01e9c6608681d313"
-            ]
-        ]
-    },
-    {
-        "id": "d195538d7d1a3ca9",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "caea6975e34b426b",
-        "name": "",
-        "x": 1630,
-        "y": 480,
-        "wires": [
-            [
-                "719a7f584256df8c"
-            ]
-        ]
-    },
-    {
-        "id": "69b07ea4fcf1b914",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "",
-        "x": 830,
-        "y": 880,
-        "wires": [
-            [
-                "15d5258283486790"
-            ]
-        ]
-    },
-    {
-        "id": "a976f4aa4c3b67af",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "",
-        "x": 1150,
-        "y": 920,
-        "wires": [
-            [
-                "8d4053fe82525a60"
-            ]
-        ]
-    },
-    {
-        "id": "d933358b8c79ed18",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "",
-        "x": 1530,
-        "y": 840,
-        "wires": [
-            [
-                "9c18247a16a170c2"
-            ]
-        ]
-    },
-    {
-        "id": "5261096054e80eea",
-        "type": "tasy data access",
-        "z": "4fa07a50531e9361",
-        "g": "609fdf68d8602640",
-        "name": "",
-        "x": 1930,
-        "y": 840,
-        "wires": [
-            [
-                "7c352a0e4772ac4a"
-            ]
-        ]
     },
     {
         "id": "2caa0a633cca16a5",
@@ -1665,973 +1665,81 @@
         "wires": []
     },
     {
-        "id": "341f8c09293907cd",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "[CONDITIONAL] Is object intercepted ?",
-        "func": "const objectName = msg.payload.value.objectName;\n\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nconst requestValue = {\n    objectName,\n    username : msg.payload.value.username\n};\n\nmsg.topic = sql;\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\";\nmsg.req = msg.req;\nmsg.headers = msg.payload.headers;\nmsg.requestValue = requestValue;\nmsg.lastPayload = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
+        "id": "fb2b9168b2e0c31a",
+        "type": "inject",
+        "z": "61c1f16c3d79c591",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 240,
-        "y": 580,
+        "y": 160,
         "wires": [
             [
-                "96779e67e693f892",
-                "c84330bd25d77805"
+                "fb081258dfd8fc95"
             ]
         ]
     },
     {
-        "id": "96779e67e693f892",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
+        "id": "fb081258dfd8fc95",
+        "type": "sql builder",
+        "z": "61c1f16c3d79c591",
+        "parameters": [],
         "name": "",
-        "x": 530,
-        "y": 580,
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "template": "select * from APP_EXTENSION.PABC_ATEBOLE",
+        "output": "str",
+        "x": 430,
+        "y": 120,
         "wires": [
             [
-                "c10b9571e0350a0f",
-                "a78eab28e04ed101"
+                "e535dfd4655f01e5"
             ]
         ]
     },
     {
-        "id": "c10b9571e0350a0f",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "Response structure",
-        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (Array.isArray(msg.payload.select) && msg.payload.select.length > 0) {\n    const resultSet = msg.payload.select[0].resultSet;\n    response.status = 'SUCCESS';\n    if (Array.isArray(resultSet) && resultSet.length > 0) {\n        const isIntercepted = resultSet[0].IE_INTERCEPTED;\n        response.isIntercepted = isIntercepted === 'Y';\n    } else {\n        response.isIntercepted = 'N';    \n    }\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    headers: msg.headers,\n    requestValue : msg.requestValue\n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 580,
-        "wires": [
-            [
-                "24dce36477114006"
-            ]
-        ]
-    },
-    {
-        "id": "062403af5967b70b",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "[CONDITIONAL] Is object intercepted ?",
-        "func": "const objectName = msg.payload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.lastPayload = msg.payload\nmsg.headers = msg.payload.headers\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 300,
-        "wires": [
-            [
-                "a063a1838547d3c3"
-            ]
-        ]
-    },
-    {
-        "id": "a063a1838547d3c3",
+        "id": "e535dfd4655f01e5",
         "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
+        "z": "61c1f16c3d79c591",
         "name": "",
-        "x": 530,
-        "y": 300,
+        "x": 670,
+        "y": 120,
         "wires": [
             [
-                "b696e9350d149ac8"
+                "5a43a65092390aee"
             ]
         ]
     },
     {
-        "id": "b696e9350d149ac8",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "Response structure",
-        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error && payload.error.length > 0 && payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = payload.error[0].message;\n} else if (payload.select && payload.select.length > 0 && payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    const hasValues = payload.select[0].resultSet.length > 0;\n    const values = payload.select[0].resultSet;\n    const isIntercepted = (hasValues && values[0].IE_INTERCEPTED) || 'N';\n    response.isIntercepted = isIntercepted === 'Y';\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    ...msg.lastPayload,\n    headers: msg.headers \n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 300,
-        "wires": [
-            [
-                "9c9a8231c3535fe7"
-            ]
-        ]
-    },
-    {
-        "id": "e466e1210d434e72",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "parameters": [],
-        "name": "Object Exists Function",
-        "func": "const objectName = msg.payload.value.objectName;\n\nconst sql = `\n    select   * \n    from     all_objects \n    where    object_name = '${objectName}' \n`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-CHECK-OBJECT-EXISTS';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 800,
-        "wires": [
-            [
-                "5aaa7ece43de5004",
-                "143dfd3618d6d2df"
-            ]
-        ]
-    },
-    {
-        "id": "8f879f3c8580557f",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "parameters": [],
-        "name": "Object Exists Response",
-        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1050,
-        "y": 800,
-        "wires": [
-            [
-                "7c40c8e42ed19d49",
-                "a26383d3b089371d"
-            ]
-        ]
-    },
-    {
-        "id": "5aaa7ece43de5004",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "",
-        "x": 810,
-        "y": 800,
-        "wires": [
-            [
-                "8f879f3c8580557f",
-                "ab9caa4852846458"
-            ]
-        ]
-    },
-    {
-        "id": "ab9caa4852846458",
+        "id": "5a43a65092390aee",
         "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1000,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "143dfd3618d6d2df",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "debug 13",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "c58a466588d4cbad",
-        "type": "spinal-consumer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "Check Object Exists",
-        "outOfRangeOffset": "earliest",
-        "fromOffset": "latest",
-        "topic": "spinal.cmdk.object.ObjectExistsRequest",
-        "groupid": "cmdk-smartlink-object-interceptor-object-exists-request",
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 170,
-        "y": 800,
-        "wires": [
-            [
-                "4e19d646e65adf4b"
-            ]
-        ]
-    },
-    {
-        "id": "7c40c8e42ed19d49",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "debug 14",
-        "active": false,
+        "z": "61c1f16c3d79c591",
+        "name": "debug 15",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "4e19d646e65adf4b",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "",
-        "property": "payload.value",
-        "action": "",
-        "pretty": false,
-        "x": 350,
-        "y": 800,
-        "wires": [
-            [
-                "e466e1210d434e72"
-            ]
-        ]
-    },
-    {
-        "id": "a26383d3b089371d",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 1270,
-        "y": 800,
-        "wires": [
-            [
-                "a22338ca71c91eca"
-            ]
-        ]
-    },
-    {
-        "id": "a22338ca71c91eca",
-        "type": "spinal-producer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "16f2d4a09fb71579",
-        "name": "",
-        "topic": "spinal.cmdk.object.ObjectExistsReply",
-        "advancedoptions": false,
-        "acknowledge": "all",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": 30000,
-        "transactiontimeout": 60000,
-        "metadatamaxage": 300000,
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 1460,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "3fa7b7785ccb12f4",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Debug payload",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "9c9a8231c3535fe7",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "Run function",
-        "func": "const nmObject = msg.payload.value.objectName;\nconst userName = msg.payload.value.username;\nconst isIntercepted = msg.payload.isIntercepted\nconst externalId = msg.payload.value.externalId\n\nif (!nmObject) {\n    msg.error = 'objectName is required.'\n    return msg;\n}\n\nif (!/^[a-zA-Z0-9_]+$/.test(nmObject)) {\n    msg.error = 'Invalid object name.'\n    return msg;\n}\n\nif (isIntercepted) {\n    msg.error = 'Object already have an interceptor'\n    return msg;\n}\n\nlet procedure = `call CMDK_INTERCEPTOR_PCK.ADD_INTERCEPTOR('${nmObject}', '${externalId}','${userName}')`\n\nmsg.topic = procedure;\nmsg.event = 'SQL-OBJECT-INTERCEPTOR-ADD';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 950,
-        "y": 200,
-        "wires": [
-            [
-                "3fa7b7785ccb12f4",
-                "30f40c94f3457f08"
-            ]
-        ]
-    },
-    {
-        "id": "ab17209b359f35d8",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Debug SQL output",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1420,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "a276a946d4912cbd",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "Map Responses",
-        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'Y'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to added the interceptor to the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2020,
-        "y": 160,
-        "wires": [
-            [
-                "0f9e3ede6de4234e",
-                "dc8c31877f5a223a"
-            ]
-        ]
-    },
-    {
-        "id": "30f40c94f3457f08",
-        "type": "switch",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "property": "error",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1190,
-        "y": 140,
-        "wires": [
-            [
-                "a276a946d4912cbd"
-            ],
-            [
-                "61b2c9305d6e89c2"
-            ]
-        ]
-    },
-    {
-        "id": "61b2c9305d6e89c2",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "x": 1350,
-        "y": 220,
-        "wires": [
-            [
-                "ab17209b359f35d8",
-                "21386e31b1abf1f8"
-            ]
-        ]
-    },
-    {
-        "id": "6e63c30479a0e8a4",
-        "type": "spinal-consumer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Add Interceptor Consumer",
-        "outOfRangeOffset": "earliest",
-        "fromOffset": "latest",
-        "topic": "spinal.cmdk.object.interceptor.AddInterceptorRequest",
-        "groupid": "cmdk-smartlink-object-interceptor-add-interceptor-request",
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 230,
-        "y": 160,
-        "wires": [
-            [
-                "c56f5812a3b247dc"
-            ]
-        ]
-    },
-    {
-        "id": "c56f5812a3b247dc",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "property": "payload.value",
-        "action": "",
-        "pretty": false,
-        "x": 510,
-        "y": 160,
-        "wires": [
-            [
-                "062403af5967b70b"
-            ]
-        ]
-    },
-    {
-        "id": "e37bfd336096d016",
-        "type": "spinal-producer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Add Interceptor Reply Producer",
-        "topic": "spinal.cmdk.object.interceptor.AddInterceptorReply",
-        "advancedoptions": false,
-        "acknowledge": "all",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": 30000,
-        "transactiontimeout": 60000,
-        "metadatamaxage": 300000,
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 2310,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "3c6d7679d1693a88",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "Debug topic",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "topic",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "24dce36477114006",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "Build delete procedure call",
-        "func": "const isIntercepted = msg.payload.isIntercepted\nconst objectName = msg.requestValue.objectName;\nconst userName = msg.requestValue.username || '';\n\nif (!objectName || !/^[a-zA-Z0-9_]+$/.test(objectName)) {\n    msg.error = 'Invalid object name.';\n}\n\nif (!isIntercepted) {\n    msg.error = 'Object does not have an interceptor to remove it';\n    return msg;\n}\n\nconst sql = `CALL CMDK_INTERCEPTOR_PCK.remove_interceptor('${objectName}', '${userName}')`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-OBJECT-DELETION';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 820,
-        "y": 460,
-        "wires": [
-            [
-                "3c6d7679d1693a88",
-                "77cec347ee21bcfe"
-            ]
-        ]
-    },
-    {
-        "id": "584f63dc704b67a6",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "Map Responses",
-        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'N'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to remove the interceptor from the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers\n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1680,
-        "y": 460,
-        "wires": [
-            [
-                "226c79ecf0638692"
-            ]
-        ]
-    },
-    {
-        "id": "79b7e0a57bef5c6e",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "x": 1290,
-        "y": 580,
-        "wires": [
-            [
-                "cb6557063768ad8c",
-                "7e19f93f3d6fe631"
-            ]
-        ]
-    },
-    {
-        "id": "77cec347ee21bcfe",
-        "type": "switch",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "property": "error",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1050,
-        "y": 460,
-        "wires": [
-            [
-                "584f63dc704b67a6"
-            ],
-            [
-                "79b7e0a57bef5c6e"
-            ]
-        ]
-    },
-    {
-        "id": "cb6557063768ad8c",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "Debug SQL output",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.data",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1350,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "442d98ad180e23e0",
-        "type": "spinal-consumer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "Remove Interceptor Consumer",
-        "outOfRangeOffset": "earliest",
-        "fromOffset": "latest",
-        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorRequest",
-        "groupid": "cmdk-smartlink-object-interceptor-remove-interceptor-request",
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 210,
-        "y": 460,
-        "wires": [
-            [
-                "5c0a4979425d3fd0"
-            ]
-        ]
-    },
-    {
-        "id": "5c0a4979425d3fd0",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "property": "payload.value",
-        "action": "",
-        "pretty": false,
-        "x": 510,
-        "y": 460,
-        "wires": [
-            [
-                "341f8c09293907cd"
-            ]
-        ]
-    },
-    {
-        "id": "723a1a183c88a76d",
-        "type": "spinal-producer",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "Remove Interceptor Reply Producer",
-        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorReply",
-        "advancedoptions": false,
-        "acknowledge": "all",
-        "partition": "",
-        "headeritems": {},
-        "key": "",
-        "responsetimeout": 30000,
-        "transactiontimeout": 60000,
-        "metadatamaxage": 300000,
-        "allowautotopiccreation": false,
-        "connection": {
-            "name": "broker name",
-            "host": "localhost:9092"
-        },
-        "broker": "0",
-        "x": 2200,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "0f9e3ede6de4234e",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 2230,
+        "x": 880,
         "y": 120,
-        "wires": [
-            [
-                "e37bfd336096d016"
-            ]
-        ]
-    },
-    {
-        "id": "226c79ecf0638692",
-        "type": "json",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 1930,
-        "y": 460,
-        "wires": [
-            [
-                "723a1a183c88a76d"
-            ]
-        ]
-    },
-    {
-        "id": "c84330bd25d77805",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "name": "Debug payload",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 660,
         "wires": []
-    },
-    {
-        "id": "a78eab28e04ed101",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "name": "Debug payload after SQL",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "21386e31b1abf1f8",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "[CONDITIONAL] Check again if was intercepted",
-        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.headers = msg.lastPayload.headers\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1660,
-        "y": 180,
-        "wires": [
-            [
-                "63a1f9141e61361e"
-            ]
-        ]
-    },
-    {
-        "id": "63a1f9141e61361e",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "x": 1730,
-        "y": 260,
-        "wires": [
-            [
-                "7df6da1ac5aa089c",
-                "8a4ba1eb72367e7a"
-            ]
-        ]
-    },
-    {
-        "id": "7df6da1ac5aa089c",
-        "type": "switch",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "",
-        "property": "payload.select[0].resultSet",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "cont",
-                "v": "payload.select[0].resultSet",
-                "vt": "msg"
-            },
-            {
-                "t": "empty"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 1970,
-        "y": 260,
-        "wires": [
-            [
-                "a276a946d4912cbd"
-            ],
-            [
-                "3f4ef8d9ee799f9a"
-            ]
-        ]
-    },
-    {
-        "id": "8a4ba1eb72367e7a",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Debug SQL output",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1740,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "3f4ef8d9ee799f9a",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "parameters": [],
-        "name": "Create error Function",
-        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to added the interceptor to the object.'\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2180,
-        "y": 260,
-        "wires": [
-            [
-                "a276a946d4912cbd"
-            ]
-        ]
-    },
-    {
-        "id": "dc8c31877f5a223a",
-        "type": "debug",
-        "z": "d20c0b6ec9c609e2",
-        "g": "578cc34d29442445",
-        "name": "Debug Response 2",
-        "active": false,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2020,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "7e19f93f3d6fe631",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "[CONDITIONAL] Check again if was intercepted",
-        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1400,
-        "y": 640,
-        "wires": [
-            [
-                "ad4429f82fe51126"
-            ]
-        ]
-    },
-    {
-        "id": "ad4429f82fe51126",
-        "type": "tasy data access",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "x": 1710,
-        "y": 640,
-        "wires": [
-            [
-                "f61d8096aee830ca",
-                "cb6557063768ad8c"
-            ]
-        ]
-    },
-    {
-        "id": "e4d8419aa7f59522",
-        "type": "function",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "parameters": [],
-        "name": "Create error Function",
-        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to remove the interceptor from the object.'\n\nmsg.payload = { \n    ...response\n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 580,
-        "wires": [
-            [
-                "584f63dc704b67a6"
-            ]
-        ]
-    },
-    {
-        "id": "f61d8096aee830ca",
-        "type": "switch",
-        "z": "d20c0b6ec9c609e2",
-        "g": "fc5eccf8390b40ea",
-        "name": "",
-        "property": "payload.select[0].resultSet",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "cont",
-                "v": "payload.select[0].resultSet",
-                "vt": "msg"
-            },
-            {
-                "t": "empty"
-            }
-        ],
-        "checkall": "false",
-        "repair": false,
-        "outputs": 2,
-        "x": 1750,
-        "y": 580,
-        "wires": [
-            [
-                "584f63dc704b67a6"
-            ],
-            [
-                "e4d8419aa7f59522"
-            ]
-        ]
     },
     {
         "id": "90f27b4d1754e62e",
@@ -3186,80 +2294,972 @@
         "wires": []
     },
     {
-        "id": "fb2b9168b2e0c31a",
-        "type": "inject",
-        "z": "61c1f16c3d79c591",
+        "id": "f61d8096aee830ca",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
         "name": "",
-        "props": [
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
             {
-                "p": "payload"
+                "t": "cont",
+                "v": "payload.select[0].resultSet",
+                "vt": "msg"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "t": "empty"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 220,
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1750,
+        "y": 580,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ],
+            [
+                "e4d8419aa7f59522"
+            ]
+        ]
+    },
+    {
+        "id": "e4d8419aa7f59522",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Create error Function",
+        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to remove the interceptor from the object.'\n\nmsg.payload = { \n    ...response\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1980,
+        "y": 580,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ]
+        ]
+    },
+    {
+        "id": "ad4429f82fe51126",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 1710,
+        "y": 640,
+        "wires": [
+            [
+                "f61d8096aee830ca",
+                "cb6557063768ad8c"
+            ]
+        ]
+    },
+    {
+        "id": "7e19f93f3d6fe631",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "[CONDITIONAL] Check again if was intercepted",
+        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 640,
+        "wires": [
+            [
+                "ad4429f82fe51126"
+            ]
+        ]
+    },
+    {
+        "id": "dc8c31877f5a223a",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug Response 2",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2020,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3f4ef8d9ee799f9a",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Create error Function",
+        "func": "const response = {};\n\nresponse.status = 'ERROR'\nresponse.error = 'Failed to added the interceptor to the object.'\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2180,
+        "y": 260,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ]
+        ]
+    },
+    {
+        "id": "8a4ba1eb72367e7a",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug SQL output",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7df6da1ac5aa089c",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload.select[0].resultSet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.select[0].resultSet",
+                "vt": "msg"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1970,
+        "y": 260,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ],
+            [
+                "3f4ef8d9ee799f9a"
+            ]
+        ]
+    },
+    {
+        "id": "63a1f9141e61361e",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "x": 1730,
+        "y": 260,
+        "wires": [
+            [
+                "7df6da1ac5aa089c",
+                "8a4ba1eb72367e7a"
+            ]
+        ]
+    },
+    {
+        "id": "21386e31b1abf1f8",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "[CONDITIONAL] Check again if was intercepted",
+        "func": "const objectName = msg.lastPayload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.headers = msg.lastPayload.headers\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 180,
+        "wires": [
+            [
+                "63a1f9141e61361e"
+            ]
+        ]
+    },
+    {
+        "id": "226c79ecf0638692",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1930,
+        "y": 460,
+        "wires": [
+            [
+                "723a1a183c88a76d"
+            ]
+        ]
+    },
+    {
+        "id": "0f9e3ede6de4234e",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2230,
+        "y": 120,
+        "wires": [
+            [
+                "e37bfd336096d016"
+            ]
+        ]
+    },
+    {
+        "id": "723a1a183c88a76d",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Remove Interceptor Reply Producer",
+        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2200,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5c0a4979425d3fd0",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 460,
+        "wires": [
+            [
+                "341f8c09293907cd"
+            ]
+        ]
+    },
+    {
+        "id": "442d98ad180e23e0",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Remove Interceptor Consumer",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.interceptor.RemoveInterceptorRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-remove-interceptor-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "5c0a4979425d3fd0"
+            ]
+        ]
+    },
+    {
+        "id": "cb6557063768ad8c",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Debug SQL output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.data",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "77cec347ee21bcfe",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1050,
+        "y": 460,
+        "wires": [
+            [
+                "584f63dc704b67a6"
+            ],
+            [
+                "79b7e0a57bef5c6e"
+            ]
+        ]
+    },
+    {
+        "id": "79b7e0a57bef5c6e",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 1290,
+        "y": 580,
+        "wires": [
+            [
+                "cb6557063768ad8c",
+                "7e19f93f3d6fe631"
+            ]
+        ]
+    },
+    {
+        "id": "584f63dc704b67a6",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Map Responses",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'N'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to remove the interceptor from the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 460,
+        "wires": [
+            [
+                "226c79ecf0638692"
+            ]
+        ]
+    },
+    {
+        "id": "24dce36477114006",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Build delete procedure call",
+        "func": "const isIntercepted = msg.payload.isIntercepted\nconst objectName = msg.requestValue.objectName;\nconst userName = msg.requestValue.username || '';\n\nif (!objectName || !/^[a-zA-Z0-9_]+$/.test(objectName)) {\n    msg.error = 'Invalid object name.';\n}\n\nif (!isIntercepted) {\n    msg.error = 'Object does not have an interceptor to remove it';\n    return msg;\n}\n\nconst sql = `CALL CMDK_INTERCEPTOR_PCK.remove_interceptor('${objectName}', '${userName}')`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-OBJECT-DELETION';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "3c6d7679d1693a88",
+                "77cec347ee21bcfe"
+            ]
+        ]
+    },
+    {
+        "id": "3c6d7679d1693a88",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "Debug topic",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e37bfd336096d016",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Add Interceptor Reply Producer",
+        "topic": "spinal.cmdk.object.interceptor.AddInterceptorReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 2310,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c56f5812a3b247dc",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 510,
         "y": 160,
         "wires": [
             [
-                "fb081258dfd8fc95"
+                "062403af5967b70b"
             ]
         ]
     },
     {
-        "id": "fb081258dfd8fc95",
-        "type": "sql builder",
-        "z": "61c1f16c3d79c591",
-        "parameters": [],
-        "name": "",
-        "field": "topic",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "template": "select * from APP_EXTENSION.PABC_ATEBOLE",
-        "output": "str",
-        "x": 430,
-        "y": 120,
+        "id": "6e63c30479a0e8a4",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Add Interceptor Consumer",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.interceptor.AddInterceptorRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-add-interceptor-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 230,
+        "y": 160,
         "wires": [
             [
-                "e535dfd4655f01e5"
+                "c56f5812a3b247dc"
             ]
         ]
     },
     {
-        "id": "e535dfd4655f01e5",
+        "id": "61b2c9305d6e89c2",
         "type": "tasy data access",
-        "z": "61c1f16c3d79c591",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
         "name": "",
-        "x": 670,
-        "y": 120,
+        "x": 1350,
+        "y": 220,
         "wires": [
             [
-                "5a43a65092390aee"
+                "ab17209b359f35d8",
+                "21386e31b1abf1f8"
             ]
         ]
     },
     {
-        "id": "5a43a65092390aee",
+        "id": "30f40c94f3457f08",
+        "type": "switch",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1190,
+        "y": 140,
+        "wires": [
+            [
+                "a276a946d4912cbd"
+            ],
+            [
+                "61b2c9305d6e89c2"
+            ]
+        ]
+    },
+    {
+        "id": "a276a946d4912cbd",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Map Responses",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error) {\n    if (Array.isArray(payload.error) && payload.error.length > 0) {\n        response.status = 'ERROR';\n        response.error = payload.error[0].message;    \n    } else {\n        response.status = 'ERROR';\n        response.error = payload.error;\n    }\n} else if (Array.isArray(payload.select)) {\n    const resultSet = payload.select[0].resultSet;\n    if (Array.isArray(resultSet) && resultSet.length > 0  && resultSet[0].IE_INTERCEPTED === 'Y'){\n        response.status = 'SUCCESS';\n        response.rows = [];   \n    } else {\n        response.status = 'ERROR';\n        response.error = 'Failed to added the interceptor to the object.'\n    }\n} else if (msg.error) {\n    response.status = 'ERROR';\n    response.error = msg.error;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 160,
+        "wires": [
+            [
+                "0f9e3ede6de4234e",
+                "dc8c31877f5a223a"
+            ]
+        ]
+    },
+    {
+        "id": "ab17209b359f35d8",
         "type": "debug",
-        "z": "61c1f16c3d79c591",
-        "name": "debug 15",
-        "active": true,
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug SQL output",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9c9a8231c3535fe7",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Run function",
+        "func": "const nmObject = msg.payload.value.objectName;\nconst userName = msg.payload.value.username;\nconst isIntercepted = msg.payload.isIntercepted\nconst externalId = msg.payload.value.externalId\n\nif (!nmObject) {\n    msg.error = 'objectName is required.'\n    return msg;\n}\n\nif (!/^[a-zA-Z0-9_]+$/.test(nmObject)) {\n    msg.error = 'Invalid object name.'\n    return msg;\n}\n\nif (isIntercepted) {\n    msg.error = 'Object already have an interceptor'\n    return msg;\n}\n\nlet procedure = `call CMDK_INTERCEPTOR_PCK.ADD_INTERCEPTOR('${nmObject}', '${externalId}','${userName}')`\n\nmsg.topic = procedure;\nmsg.event = 'SQL-OBJECT-INTERCEPTOR-ADD';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "3fa7b7785ccb12f4",
+                "30f40c94f3457f08"
+            ]
+        ]
+    },
+    {
+        "id": "3fa7b7785ccb12f4",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "Debug payload",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a22338ca71c91eca",
+        "type": "spinal-producer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "topic": "spinal.cmdk.object.ObjectExistsReply",
+        "advancedoptions": false,
+        "acknowledge": "all",
+        "partition": "",
+        "headeritems": {},
+        "key": "",
+        "responsetimeout": 30000,
+        "transactiontimeout": 60000,
+        "metadatamaxage": 300000,
+        "allowautotopiccreation": false,
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 1460,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "a26383d3b089371d",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1270,
+        "y": 800,
+        "wires": [
+            [
+                "a22338ca71c91eca"
+            ]
+        ]
+    },
+    {
+        "id": "4e19d646e65adf4b",
+        "type": "json",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "property": "payload.value",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 800,
+        "wires": [
+            [
+                "e466e1210d434e72"
+            ]
+        ]
+    },
+    {
+        "id": "7c40c8e42ed19d49",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 14",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 120,
+        "x": 1260,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "c58a466588d4cbad",
+        "type": "spinal-consumer",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "Check Object Exists",
+        "outOfRangeOffset": "earliest",
+        "fromOffset": "latest",
+        "topic": "spinal.cmdk.object.ObjectExistsRequest",
+        "groupid": "cmdk-smartlink-object-interceptor-object-exists-request",
+        "connection": {
+            "name": "broker name",
+            "host": "localhost:9092"
+        },
+        "broker": "0",
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "4e19d646e65adf4b"
+            ]
+        ]
+    },
+    {
+        "id": "143dfd3618d6d2df",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "ab9caa4852846458",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5aaa7ece43de5004",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "name": "",
+        "x": 810,
+        "y": 800,
+        "wires": [
+            [
+                "8f879f3c8580557f",
+                "ab9caa4852846458"
+            ]
+        ]
+    },
+    {
+        "id": "8f879f3c8580557f",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "parameters": [],
+        "name": "Object Exists Response",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (msg.payload.select && msg.payload.select.length > 0 && msg.payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    response.rows = msg.payload.select[0].resultSet;\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response, \n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 800,
+        "wires": [
+            [
+                "7c40c8e42ed19d49",
+                "a26383d3b089371d"
+            ]
+        ]
+    },
+    {
+        "id": "e466e1210d434e72",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "16f2d4a09fb71579",
+        "parameters": [],
+        "name": "Object Exists Function",
+        "func": "const objectName = msg.payload.value.objectName;\n\nconst sql = `\n    select   * \n    from     all_objects \n    where    object_name = '${objectName}' \n`;\n\nmsg.topic = sql;\nmsg.event = 'SQL-CHECK-OBJECT-EXISTS';\nmsg.headers = msg.payload.headers\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "5aaa7ece43de5004",
+                "143dfd3618d6d2df"
+            ]
+        ]
+    },
+    {
+        "id": "b696e9350d149ac8",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "Response structure",
+        "func": "const response = {};\nconst payload = msg.payload;\n\nif (payload.error && payload.error.length > 0 && payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = payload.error[0].message;\n} else if (payload.select && payload.select.length > 0 && payload.select[0].resultSet) {\n    response.status = 'SUCCESS';\n    const hasValues = payload.select[0].resultSet.length > 0;\n    const values = payload.select[0].resultSet;\n    const isIntercepted = (hasValues && values[0].IE_INTERCEPTED) || 'N';\n    response.isIntercepted = isIntercepted === 'Y';\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    ...msg.lastPayload,\n    headers: msg.headers \n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 300,
+        "wires": [
+            [
+                "9c9a8231c3535fe7"
+            ]
+        ]
+    },
+    {
+        "id": "a063a1838547d3c3",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "name": "",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "b696e9350d149ac8"
+            ]
+        ]
+    },
+    {
+        "id": "062403af5967b70b",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "578cc34d29442445",
+        "parameters": [],
+        "name": "[CONDITIONAL] Is object intercepted ?",
+        "func": "const objectName = msg.payload.value.objectName;\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nmsg.topic = sql\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\"\nmsg.lastPayload = msg.payload\nmsg.headers = msg.payload.headers\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "a063a1838547d3c3"
+            ]
+        ]
+    },
+    {
+        "id": "c10b9571e0350a0f",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "Response structure",
+        "func": "const response = {};\n\nif (msg.payload.error && msg.payload.error.length > 0 && msg.payload.error[0].message) {\n    response.status = 'ERROR';\n    response.error = msg.payload.error[0].message;\n} else if (Array.isArray(msg.payload.select) && msg.payload.select.length > 0) {\n    const resultSet = msg.payload.select[0].resultSet;\n    response.status = 'SUCCESS';\n    if (Array.isArray(resultSet) && resultSet.length > 0) {\n        const isIntercepted = resultSet[0].IE_INTERCEPTED;\n        response.isIntercepted = isIntercepted === 'Y';\n    } else {\n        response.isIntercepted = 'N';    \n    }\n} else {\n    response.status = 'ERROR';\n    response.error = 'Invalid data structure in msg.payload';\n}\n\nmsg.payload = { \n    ...response,\n    headers: msg.headers,\n    requestValue : msg.requestValue\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 580,
+        "wires": [
+            [
+                "24dce36477114006"
+            ]
+        ]
+    },
+    {
+        "id": "96779e67e693f892",
+        "type": "tasy data access",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "name": "",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "c10b9571e0350a0f",
+                "a78eab28e04ed101"
+            ]
+        ]
+    },
+    {
+        "id": "341f8c09293907cd",
+        "type": "function",
+        "z": "d20c0b6ec9c609e2",
+        "g": "fc5eccf8390b40ea",
+        "parameters": [],
+        "name": "[CONDITIONAL] Is object intercepted ?",
+        "func": "const objectName = msg.payload.value.objectName;\n\nif (!objectName || !/\\w/g.test(objectName)) {\n    msg.error = \"Invalid object name\";\n    return msg;\n}\n\nconst sql = `select IE_INTERCEPTED from cmdk_object_interceptor where NM_OBJECT = '${objectName}'`;\n\nconst requestValue = {\n    objectName,\n    username : msg.payload.value.username\n};\n\nmsg.topic = sql;\nmsg.event = \"CHECK_OBJECT_INTERCEPTOR\";\nmsg.req = msg.req;\nmsg.headers = msg.payload.headers;\nmsg.requestValue = requestValue;\nmsg.lastPayload = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 580,
+        "wires": [
+            [
+                "96779e67e693f892",
+                "c84330bd25d77805"
+            ]
+        ]
+    },
+    {
+        "id": "c84330bd25d77805",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Debug payload",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a78eab28e04ed101",
+        "type": "debug",
+        "z": "d20c0b6ec9c609e2",
+        "name": "Debug payload after SQL",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 660,
         "wires": []
     }
 ]
